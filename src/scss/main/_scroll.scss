@@ -1,0 +1,38 @@
+.btnScroll {
+	position: fixed;
+	right: 2vw;
+	top: 50%;
+	transform: translateY(-50%);
+	z-index: 20;
+	li {
+		display: flex;
+		justify-content: flex-end;
+		align-content: center;
+		p {
+			font-size: 10px;
+			color: rgb(203, 119, 10);
+			cursor: pointer;
+			opacity: 0;
+			transition: 1;
+		}
+		a {
+			display: block;
+			width: 9px;
+			height: 9px;
+			margin-left: 1vw;
+			border-radius: 1px;
+			background-color: rgb(110, 109, 109);
+			margin-bottom: 20px;
+			cursor: pointer;
+			transition: 0.5s;
+		}
+		&.on a,
+		&:hover a {
+			transform: scale(1.1);
+			background-color: #efefef;
+		}
+		&:hover p {
+			opacity: 1;
+		}
+	}
+}

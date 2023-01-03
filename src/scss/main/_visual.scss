@@ -1,0 +1,368 @@
+// keyframe prev, next 작성하기
+#visual {
+	width: 1180px;
+	height: calc(100vh - 110px - 50px);
+	min-height: 750px;
+	margin: 0 auto;
+	position: relative;
+	overflow: hidden;
+	&.off {
+		.inner {
+			.btnViewOpen {
+				margin-bottom: -100%;
+				opacity: 0;
+			}
+			.txt {
+				margin-top: -100%;
+				opacity: 0;
+			}
+			.pic {
+				margin-right: -100%;
+				opacity: 0;
+			}
+			.wrap {
+				.slider,
+				.sliderBtn {
+					margin-left: -100%;
+					opacity: 0;
+				}
+			}
+		}
+	}
+	.inner {
+		width: 100%;
+		height: 100%;
+		.btnViewOpen {
+			display: block;
+			width: 150px;
+			height: 20px;
+			position: absolute;
+			left: 25%;
+			bottom: 98px;
+			font-size: 14px;
+			line-height: 20px;
+			color: rgb(203, 119, 10);
+			text-decoration-line: underline;
+			transition: 1s 0s;
+			&:hover {
+				color: rgb(249, 173, 110);
+				font-size: 15px;
+			}
+		}
+		.txt {
+			width: 320px;
+			position: absolute;
+			top: 0;
+			left: 25%;
+			transition: 1s 0s;
+			h1 {
+				margin-bottom: 200px;
+				font-size: 120px;
+			}
+			p {
+				font-size: 16px;
+				font-weight: 200;
+				color: rgb(110, 109, 109);
+			}
+		}
+		.pic {
+			width: 470px;
+			height: 650px;
+			position: absolute;
+			top: 10px;
+			right: 0;
+			overflow: hidden;
+			transition: 1s 0.2s;
+			> img {
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+				filter: saturate(70%);
+				transition: 0.5s;
+				&:hover {
+					transform: scale(1.2);
+				}
+			}
+		}
+
+		.slider {
+			width: 250px;
+			height: 300px;
+			position: absolute;
+			top: 290px;
+			left: 0;
+			overflow: hidden;
+			transition: 1s 0.4s;
+			ul {
+				width: 100%;
+				height: 100%;
+				position: absolute;
+				top: 0;
+				left: 0;
+				perspective: 900px;
+				li {
+					width: 100%;
+					height: 100%;
+					position: absolute;
+					top: 0;
+					left: 0;
+					transition: 0.5s;
+					img {
+						width: 100%;
+						height: 100%;
+						object-fit: cover;
+						filter: saturate(70%);
+						transition: 0.5s;
+						&:hover {
+							transform: scale(1.2);
+						}
+					}
+					&:nth-of-type(1) {
+						transform: translateX(-110%) rotateY(90deg) scale(0.6);
+						opacity: 0;
+					}
+					&:nth-of-type(2) {
+						transform: translateX(-90%) rotateY(60deg) scale(0.6);
+						opacity: 0;
+					}
+					&:nth-of-type(3) {
+						transform: translateX(0%) rotateY(0deg) scale(1);
+						opacity: 1;
+					}
+					&:nth-of-type(4) {
+						transform: translateX(90%) rotateY(-60deg) scale(0.6);
+						opacity: 0;
+					}
+					&:nth-of-type(5) {
+						transform: translateX(110%) rotateY(-90deg) scale(0.6);
+						opacity: 0;
+					}
+				}
+			}
+		}
+		.sliderBtn {
+			position: absolute;
+			top: calc(290px + 300px + 2vh);
+			left: 0;
+			transition: 1s 0.4s;
+			.prev,
+			.next {
+				display: inline-block;
+				width: 70px;
+				height: 15px;
+				cursor: pointer;
+				margin-right: 100px;
+				position: relative;
+				&::before,
+				&::after {
+					content: '';
+					display: block;
+					width: 12px;
+					height: 2px;
+					background: #fff;
+					position: absolute;
+				}
+				&::before {
+					transform: rotate(45deg) translateX(0px);
+				}
+				&::after {
+					transform: rotate(-45deg) translateX(0px);
+				}
+				span {
+					width: 70px;
+					height: 2px;
+					background: #fff;
+					position: absolute;
+					opacity: 1;
+				}
+				&.on {
+					animation: wrap 0.3s 1;
+				}
+			}
+
+			.prev {
+				&::before,
+				&::after {
+					left: 25px;
+					transform-origin: left center;
+				}
+				&::before {
+					top: 46.4%;
+				}
+				&::after {
+					bottom: 46.4%;
+				}
+				span {
+					left: 24.1px;
+					top: 46.4%;
+				}
+				&.on {
+					span {
+						animation: prevArrow 0.5s 1;
+					}
+				}
+			}
+
+			.next {
+				&::before,
+				&::after {
+					right: 25px;
+					transform-origin: right center;
+				}
+				&::before {
+					top: 47.1%;
+				}
+				&::after {
+					bottom: 47.1%;
+				}
+				span {
+					right: 25.5px;
+					top: 47.1%;
+				}
+				&.on {
+					span {
+						animation: nextArrow 0.5s 1;
+					}
+				}
+			}
+		}
+	}
+}
+
+// tablet - 1179px--------------------
+@media screen and (max-width: $tablet) {
+	#visual {
+		width: 100%;
+		height: calc(100vh - 5vh - 110px);
+		overflow: visible;
+		&.off {
+			.inner {
+				.btnViewOpen {
+					margin-top: -100%;
+				}
+			}
+		}
+		.inner {
+			.btnViewOpen {
+				left: 12vw;
+				top: 300px;
+				z-index: 2;
+			}
+			.txt {
+				width: 35vw;
+				top: -110px;
+				left: 12vw;
+				z-index: 2;
+				h1 {
+					margin-bottom: 0px;
+				}
+			}
+			.pic {
+				top: 40px;
+				right: 5vw;
+			}
+
+			.slider {
+				top: 40vh;
+				left: 8vw;
+			}
+			.sliderBtn {
+				top: calc(40vh + 300px + 2vh);
+				left: 8vw;
+			}
+		}
+	}
+}
+
+// middle - 935px--------------------
+@media screen and (max-width: $middle) {
+	#visual {
+		.inner {
+			.btnViewOpen {
+				top: 325px;
+			}
+			.txt {
+				width: 45vw;
+			}
+			.pic {
+				height: 600px;
+			}
+			.slider,
+			.sliderBtn {
+				display: none;
+			}
+		}
+	}
+}
+// mobile - 539px -------------------
+@media screen and (max-width: $mobile) {
+	#visual {
+		height: 600px;
+		min-height: auto;
+		.inner {
+			.btnViewOpen {
+				left: 8vw;
+				top: 180px;
+			}
+			.txt {
+				width: 40vw;
+				left: 8vw;
+				h1 {
+					font-size: 90px;
+				}
+				p {
+					display: none;
+				}
+			}
+			.pic {
+				width: 70%;
+				height: 55vh;
+				margin-right: 0vw;
+			}
+		}
+	}
+}
+@keyframes prevArrow {
+	0% {
+		left: 25px;
+		width: 20px;
+		opacity: 1;
+	}
+	70% {
+		left: -30px;
+		width: 50px;
+		opacity: 0;
+	}
+	71% {
+		left: 100px;
+		width: 120px;
+		opacity: 0;
+	}
+	100% {
+		left: 25px;
+		width: 20px;
+		opacity: 1;
+	}
+}
+@keyframes nextArrow {
+	0% {
+		right: 25px;
+		width: 20px;
+		opacity: 1;
+	}
+	70% {
+		right: -30px;
+		width: 50px;
+		opacity: 0;
+	}
+	71% {
+		right: 100px;
+		width: 120px;
+		opacity: 0;
+	}
+	100% {
+		right: 25px;
+		width: 20px;
+		opacity: 1;
+	}
+}

@@ -1,0 +1,30 @@
+@charset 'utf-8';
+
+* {
+	margin: 0px;
+	padding: 0px;
+	box-sizing: border-box;
+	font-family: 'Merriweather Sans';
+	color: #efefef;
+}
+ul,
+ol,
+li {
+	list-style: none;
+}
+a {
+	text-decoration: none;
+}
+h1 {
+	font-size: 50px;
+	font-weight: 300;
+}
+.hidden {
+	position: absolute;
+	top: -999999px;
+	opacity: 0;
+}
+
+body {
+	background-color: #0b0909;
+}

@@ -1,0 +1,277 @@
+// keyframe circle 작성하기
+#awards {
+	.inner {
+		width: 1180px;
+		height: 650px;
+		margin: 0 auto;
+		padding: 30px 0px 30px;
+		border-top: 2px solid rgb(110, 109, 109);
+		position: relative;
+		&::after {
+			content: '';
+			display: block;
+			clear: both;
+		}
+		h1 {
+			float: left;
+			width: 100%;
+			margin-bottom: 30px;
+			transform: translateY(-50%);
+			opacity: 0;
+			transition: 1s;
+		}
+		.wrap {
+			float: right;
+			width: 700px;
+			transform: rotateY(180deg);
+			opacity: 0;
+			transition: 1s 0.5s;
+			.award_tab {
+				width: 700px;
+				height: 100%;
+				position: relative;
+				margin: 0px;
+				padding: 10px 10px 10px;
+				border-top: 1px solid #333;
+				overflow: hidden;
+				&:hover label::after {
+					color: rgb(203, 119, 10);
+					font-size: 35px;
+				}
+				input[type='radio'] {
+					appearance: none;
+					position: absolute;
+					&:checked + label::after {
+						transform: rotate(135deg);
+						opacity: 0;
+					}
+					&:checked ~ .content {
+						max-height: 150px;
+						padding: 0px 15px;
+
+						p {
+							color: #9a9a9a;
+						}
+					}
+					&:checked ~ label {
+						margin: 0px 0px 5px;
+					}
+					&:checked ~ label h2 {
+						width: 100%;
+						height: 100%;
+						position: absolute;
+						top: 30px;
+						left: 0px;
+						color: rgba(255, 255, 255, 0.366);
+						justify-content: flex-end;
+						font-size: 70px;
+						padding: 10px;
+						transition: 0.5s;
+					}
+					&:checked ~ label h3 {
+						padding: 0px 15px;
+						font-weight: 500;
+						color: rgb(203, 119, 10);
+						border-radius: 2px;
+					}
+				}
+				label {
+					display: flex;
+					align-items: center;
+					cursor: pointer;
+					&::after {
+						content: '+';
+						position: absolute;
+						right: 20px;
+						font-size: 32px;
+						transition: all 1s;
+						color: rgb(110, 109, 109);
+					}
+					h2 {
+						width: 60px;
+						height: 40px;
+						display: flex;
+						justify-content: center;
+						align-items: center;
+						color: #efefef;
+						font-size: 20px;
+						font-weight: 500;
+						margin-right: 50px;
+						margin-left: 10px;
+					}
+					h3 {
+						position: relative;
+						font-weight: 400;
+						color: #9a9a9a;
+						z-index: 10;
+					}
+				}
+				.content {
+					max-height: 0;
+					transition: 1s;
+					overflow: hidden;
+					display: flex;
+					img {
+						width: 200px;
+						height: 150px;
+						padding: 10px 0;
+						margin: 0px 20px 0px 0px;
+						filter: saturate(70%);
+					}
+					p {
+						width: 400px;
+						position: relative;
+						padding: 10px 0;
+						color: #ccc;
+						z-index: 10;
+					}
+				}
+			}
+		}
+		.circle {
+			width: 300px;
+			height: 300px;
+			position: absolute;
+			top: 20vh;
+			left: 3vw;
+			transform: translateY(50%);
+			opacity: 0;
+			transition: 1s 0.5s;
+			p {
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				animation: circle 40s linear infinite;
+				animation-play-state: running;
+				span {
+					display: inline-block;
+					position: absolute;
+					top: 50%;
+					left: 50%;
+					font-size: 20px;
+					color: rgb(110, 109, 109);
+					margin-top: -10px;
+					margin-left: -10px;
+				}
+			}
+			&:hover {
+				p {
+					animation-play-state: paused;
+				}
+			}
+		}
+	}
+	&.on {
+		.inner {
+			h1 {
+				transform: translateY(0%);
+				opacity: 1;
+			}
+			.wrap {
+				transform: rotateY(0deg);
+				opacity: 1;
+			}
+			.circle {
+				transform: translateY(0%);
+				opacity: 1;
+			}
+		}
+	}
+}
+
+// tablet - 1179px--------------------
+@media screen and (max-width: $tablet) {
+	#awards {
+		.inner {
+			width: 100%;
+			height: 670px;
+			padding: 5vw 5vw 5vw;
+			.wrap {
+				margin-top: 6vh;
+			}
+		}
+	}
+}
+
+// middle - 935px--------------------
+@media screen and (max-width: $middle) {
+	#awards {
+		.inner {
+			width: 100%;
+			height: 100%;
+			.wrap {
+				margin-top: 6vh;
+				width: 80%;
+				.award_tab {
+					width: 100%;
+					input[type='radio'] {
+						&:checked ~ label h2 {
+							display: none;
+						}
+					}
+					label {
+						h2 {
+							margin-right: 20px;
+						}
+						h3 {
+							margin-right: 15px;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+// mobile - 539px -------------------
+@media screen and (max-width: $mobile) {
+	#awards {
+		.inner {
+			height: 750px;
+			.wrap {
+				width: 100%;
+				.award_tab {
+					padding: 10px 0px 10px;
+					input[type='radio'] {
+						&:checked ~ .content {
+							max-height: 200px;
+						}
+						&:checked ~ label h2 {
+							display: none;
+						}
+					}
+					label {
+						h2 {
+							font-size: 16px;
+						}
+						h3 {
+							font-size: 14px;
+							padding: 10px 30px 10px 0px;
+						}
+					}
+					.content {
+						flex-direction: column;
+						img {
+							width: 150px;
+							height: 100px;
+						}
+						p {
+							width: 100%;
+							height: 100%;
+							padding: 2px 0;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+@keyframes circle {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}

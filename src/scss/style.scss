@@ -1,0 +1,28 @@
+$tablet: 1179px;
+$middle: 935px;
+$mobile: 539px;
+
+// common
+@import 'common/reset';
+@import 'common/layout';
+@import 'common/header';
+@import 'common/footer';
+@import 'common/modal';
+
+// main
+@import 'main/visual';
+@import 'main/aboutMain';
+@import 'main/portfolioMain';
+@import 'main/awards';
+@import 'main/blog';
+@import 'main/scroll';
+
+// sub
+@import 'sub/aboutSub';
+@import 'sub/portfolioSub';
+@import 'sub/youtube';
+@import 'sub/contact';
+@import 'sub/notice';
+@import 'sub/join';
+
+@import url('https://fonts.googleapis.com/css2?family=Merriweather+Sans:wght@300;400;500;600&family=Yeseva+One&display=swap');
