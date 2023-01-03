@@ -1,0 +1,24 @@
+{
+  "contactInfo": [
+    {
+      "contactMethod": "ADDRESS",
+      "contactDetail": "82, Ongnyeon-ro, Yeonsu-gu, Incheon, Republic of Korea",
+      "pic": "placeholder.png"
+    },
+    {
+      "contactMethod": "OPENING HOURS",
+      "contactDetail": "Monday to Friday : 9am to 6pm",
+      "pic": "time.png"
+    },
+    {
+      "contactMethod": "E-mail",
+      "contactDetail": "architecture @gmail.com",
+      "pic": "email.png"
+    },
+    {
+      "contactMethod": "PHONE",
+      "contactDetail": "032-1234-5678",
+      "pic": "call.png"
+    }
+  ]
+}

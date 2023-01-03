@@ -1,0 +1,31 @@
+{
+  "markerOptions": [
+    {
+      "title": "본점",
+      "latlng": "new kakao.maps.LatLng(37.4261458, 126.648286)",
+      "imgSrc": "placeholder.png",
+      "imgSize": "new kakao.maps.Size(64, 64)",
+      "imgPos": "{ offset: new kakao.maps.Point(32, 64)}",
+      "tel": "Tel. 032-1234-5678",
+      "address": "82, Ongnyeon-ro, Yeonsu-gu, Incheon, Republic of Korea"
+    },
+    {
+      "title": "안양지점",
+      "latlng": "new kakao.maps.LatLng(37.3851989, 126.9510398)",
+      "imgSrc": "placeholder.png",
+      "imgSize": "new kakao.maps.Size(64, 64)",
+      "imgPos": "{ offset: new kakao.maps.Point(32, 66)}",
+      "tel": "Tel. 031-1212-3344",
+      "address": "711, Gyeongsu-daero, Dongan-gu, Anyang-si, Gyeonggi-do, Republic of Korea"
+    },
+    {
+      "title": "서울지점",
+      "latlng": "new kakao.maps.LatLng(37.4706014, 126.9369485)",
+      "imgSrc": "placeholder.png",
+      "imgSize": "new kakao.maps.Size(64, 64)",
+      "imgPos": "{ offset: new kakao.maps.Point(32, 64)}",
+      "tel": "Tel. 02-3456-7890",
+      "address": "111, Sillim-ro 11-gil, Gwanak-gu, Seoul, Republic of Korea"
+    }
+  ]
+}
