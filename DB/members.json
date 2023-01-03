@@ -1,0 +1,24 @@
+{
+  "members": [
+    {
+      "name": "JOHN",
+      "position": "Registered Architect",
+      "pic": "member1.jpg"
+    },
+    {
+      "name": "JUSTIN",
+      "position": "Registered Architect",
+      "pic": "member2.jpg"
+    },
+    {
+      "name": "SASHA",
+      "position": "Interior Designer",
+      "pic": "member3.jpg"
+    },
+    {
+      "name": "ALEX",
+      "position": "Interior Designer",
+      "pic": "member4.jpg"
+    }
+  ]
+}
