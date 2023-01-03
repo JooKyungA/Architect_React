@@ -14,6 +14,8 @@ import Youtube from './component/sub/Youtube';
 import Contact from './component/sub/Contact';
 import Notice from './component/sub/Notice';
 import Join from './component/sub/Join';
+import JoinResult from './component/sub/JoinResult';
+import ContactResult from './component/sub/ContactResult';
 
 import './scss/style.scss';
 
@@ -31,7 +33,8 @@ function App() {
 			<Route path='/contact' component={Contact} />
 			<Route path='/notice' component={Notice} />
 			<Route path='/join' component={Join} />
-
+			<Route path='/JoinResult' component={JoinResult} />
+			<Route path='/ContactResult' component={ContactResult} />
 			<Footer />
 		</>
 	);

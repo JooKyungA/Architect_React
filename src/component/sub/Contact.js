@@ -1,11 +1,77 @@
 import axios from 'axios';
 import Layout from '../common/Layout';
 import { useEffect, useState, useRef } from 'react';
+import { useHistory } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 
 function Contact() {
+	// txt
 	const [ContactUs, setContactUs] = useState([]);
 
+	// contact_form
+	const history = useHistory();
+	const initVal = {
+		contact_name: '',
+		contact_email: '',
+		contact_branch: '',
+		contact_message: '',
+	};
+
+	const [Val, setVal] = useState(initVal);
+	const [Err, setErr] = useState({});
+	const [Submit, setSubmit] = useState(false);
+
+	const check = (value) => {
+		const errs = {};
+
+		if (value.contact_name.length < 1) {
+			errs.contact_name = '입력항목을 1글자 이상 입력하세요.';
+		}
+		if (value.contact_email.length < 8 || !/@/.test(value.contact_email)) {
+			errs.contact_email = '@를 포함한 전체 이메일 주소를 입력하세요';
+		}
+		if (value.contact_branch === '') {
+			errs.contact_branch = '항목을 선택해 주세요';
+		}
+		if (value.contact_message.length < 10) {
+			errs.contact_message = '남기는 말은 10글자 이상 입력하세요';
+		}
+		return errs;
+	};
+
+	const handleChange = (e) => {
+		const { name, value } = e.target;
+		setVal({ ...Val, [name]: value });
+	};
+	const handleCheck = (e) => {
+		let isChecked = false;
+		const { name } = e.target;
+		const inputs = e.target.parentElement.querySelectorAll('input');
+		inputs.forEach((el) => {
+			if (el.checked) isChecked = true;
+		});
+		setVal({ ...Val, [name]: isChecked });
+	};
+	const handleSelect = (e) => {
+		const { name } = e.target;
+		const isSelected = e.target.value;
+		setVal({ ...Val, [name]: isSelected });
+	};
+	const handleSubmit = (e) => {
+		e.preventDefault();
+		setErr(check(Val));
+		setSubmit(true);
+	};
+
+	useEffect(() => {
+		const len = Object.keys(Err).length;
+		if (len === 0 && Submit) {
+			alert('제출이 완료되었습니다.');
+			history.push('/contactResult');
+		}
+	}, [Err, Submit, history]);
+
+	// kakao map
 	const { kakao } = window;
 
 	const mapContainer = useRef(null);
@@ -84,8 +150,10 @@ function Contact() {
 				Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vitae, facere labore reiciendis
 				blanditiis deleniti pariatur maxime voluptatum earum, ab animi cupiditate.
 			</p>
+
+			{/* txt */}
 			<div className='txt'>
-				{ContactUs.map((data, idx) => {
+				{ContactUs.map((data) => {
 					return (
 						<div key={data.contactMethod}>
 							<img src={`${process.env.PUBLIC_URL}/img/${data.pic}`} alt={data.contactMethod} />
@@ -96,10 +164,62 @@ function Contact() {
 				})}
 			</div>
 
-			{/* contact form */}
-			<div className='wrap'></div>
+			{/* contact_form */}
+			<div className='wrap'>
+				<form action='' method='get' id='contact_form' onSubmit={handleSubmit}>
+					<fieldset>
+						<legend className='hidden'>contact 입력 폼 양식</legend>
+						<h2>Get In Touch</h2>
+						<div>
+							<label htmlFor='contact_name'>NAME</label>
+							<input
+								type='text'
+								name='contact_name'
+								id='contact_name'
+								value={Val.contact_name}
+								onChange={handleChange}
+							/>
+							<p className='err'>{Err.contact_name}</p>
+						</div>
+						<div>
+							<label htmlFor='contact_email'>E-MAIL</label>
+							<input
+								type='text'
+								name='contact_email'
+								id='contact_email'
+								value={Val.contact_email}
+								onChange={handleChange}
+							/>
+							<p className='err'>{Err.contact_email}</p>
+						</div>
+						<div>
+							<label htmlFor='contact_branch'>BRANCH</label>
+							<select name='contact_branch' id='contact_branch' onChange={handleSelect}>
+								<option value=''></option>
+								<option value='본점'>본점</option>
+								<option value='안양지점'>안양지점</option>
+								<option value='서울지점'>서울지점</option>
+							</select>
+							<p className='err'>{Err.contact_branch}</p>
+						</div>
+						<div>
+							<label htmlFor='contact_message'>MESSAGE</label>
+							<textarea
+								name='contact_message'
+								id='contact_message'
+								value={Val.contact_message}
+								onChange={handleChange}
+							></textarea>
+							<p className='err'>{Err.contact_message}</p>
+						</div>
+						<div>
+							<input type='submit' value='SUBMIT' id='contact_submit' />
+						</div>
+					</fieldset>
+				</form>
+			</div>
 
-			{/* 카카오맵API */}
+			{/* kakao map */}
 			<div id='map' ref={mapContainer}></div>
 			<ul className='branch'>
 				{MarkerOptions.map((data, idx) => {
