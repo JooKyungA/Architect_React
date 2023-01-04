@@ -1,0 +1,40 @@
+{
+  "mainPortfolio": [
+    {
+      "title": "HOUSE",
+      "pic1": "pic1.jpg",
+      "pic2": "pic2.jpg",
+      "pic3": "pic3.jpg",
+      "txt1": "PRIVATE HOUSE",
+      "txt2": "BEDROOM",
+      "txt3": "KITCHEN"
+    },
+    {
+      "title": "OFFICE",
+      "pic1": "pic1.jpg",
+      "pic2": "pic2.jpg",
+      "pic3": "pic3.jpg",
+      "txt1": "MEETING ROOM",
+      "txt2": "HALLWAY",
+      "txt3": "LOUNGE"
+    },
+    {
+      "title": "RESTAURANT",
+      "pic1": "pic1.jpg",
+      "pic2": "pic2.jpg",
+      "pic3": "pic3.jpg",
+      "txt1": "RESTAURANT",
+      "txt2": "RESTAURANT",
+      "txt3": "RESTAURANT"
+    },
+    {
+      "title": "OTHERS",
+      "pic1": "pic1.jpg",
+      "pic2": "pic2.jpg",
+      "pic3": "pic3.jpg",
+      "txt1": "SELECT SHOP",
+      "txt2": "MUSEUM",
+      "txt3": "CLOTHING STORE"
+    }
+  ]
+}
