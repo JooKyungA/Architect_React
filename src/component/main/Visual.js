@@ -1,5 +1,4 @@
-import { Link } from 'react-router-dom';
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import Anime from '../../asset/anime';
 import pic1 from '../../img/slider/pic1.jpg';
 import pic2 from '../../img/slider/pic2.jpg';
@@ -10,36 +9,39 @@ import pic5 from '../../img/slider/pic5.jpg';
 function Visual() {
 	const imgs = [pic1, pic2, pic3, pic4, pic5];
 	const visualRef = useRef(null);
-	// const viewSpeed = 500;
-	// const box = useRef(null);
-	const rect = useRef(null);
-	const speed = 1000;
-	const openBox = () => {
-		const [top, right, bottom, left, con] = rect.current.children;
-		new Anime(top, {
+	const aside = useRef(null);
+	const viewSpeed = 500;
+	const [IsOff, setIsOff] = useState('');
+	const openBox = (e) => {
+		e.preventDefault();
+		aside.current.style.display = 'block';
+
+		setIsOff('off');
+		const [_top, _right, _bottom, _left, _box] = aside.current.children;
+		new Anime(_top, {
 			prop: 'width',
 			value: '100%',
-			duration: speed,
+			duration: viewSpeed,
 			callback: () => {
-				new Anime(right, {
+				new Anime(_right, {
 					prop: 'height',
 					value: '100%',
-					duration: speed,
+					duration: viewSpeed,
 					callback: () => {
-						new Anime(bottom, {
+						new Anime(_bottom, {
 							prop: 'width',
 							value: '100%',
-							duration: speed,
+							duration: viewSpeed,
 							callback: () => {
-								new Anime(left, {
+								new Anime(_left, {
 									prop: 'height',
 									value: '100%',
-									duration: speed,
+									duration: viewSpeed,
 									callback: () => {
-										new Anime(con, {
+										new Anime(_box, {
 											prop: 'opacity',
 											value: 1,
-											duration: speed * 2,
+											duration: viewSpeed,
 										});
 									},
 								});
@@ -50,24 +52,34 @@ function Visual() {
 			},
 		});
 	};
-	const closeBox = () => {
-		const [top, right, bottom, left, con] = rect.current.children;
 
-		new Anime(con, {
+	const closeBox = (e) => {
+		e.preventDefault();
+		const [_top, _right, _bottom, _left, _box] = aside.current.children;
+
+		new Anime(_box, {
 			prop: 'opacity',
 			value: 0,
-			duration: speed,
+			duration: viewSpeed,
 			callback: () => {
-				new Anime(top, { prop: 'width', value: '0%', duration: speed });
-				new Anime(left, { prop: 'height', value: '0%', duration: speed });
-				new Anime(right, { prop: 'height', value: '0%', duration: speed });
-				new Anime(bottom, { prop: 'width', value: '0%', duration: speed });
+				new Anime(_top, { prop: 'width', value: '0%', duration: viewSpeed });
+				new Anime(_right, { prop: 'height', value: '0%', duration: viewSpeed });
+				new Anime(_bottom, { prop: 'width', value: '0%', duration: viewSpeed });
+				new Anime(_left, {
+					prop: 'height',
+					value: '0%',
+					duration: viewSpeed,
+					callback: () => {
+						aside.current.style.display = 'none';
+						setIsOff('');
+					},
+				});
 			},
 		});
 	};
 
 	return (
-		<figure id='visual' ref={visualRef}>
+		<figure id='visual' className={IsOff} ref={visualRef}>
 			<div className='inner'>
 				<a href='#' className='btnViewOpen' onClick={openBox}>
 					VIEW CONTENT
@@ -100,28 +112,15 @@ function Visual() {
 					<p className='next'>
 						<span></span>
 					</p>
-				</div>
-			</div>
-			<div className='react' ref={rect}>
-				<div className='top'></div>
-				<div className='right'></div>
-				<div className='bottom'></div>
-				<div className='left'></div>
-				<div className='con'>
-					<span className='btnClose' onClick={closeBox}>
-						close
-					</span>
-				</div>
-			</div>
-			{/* <aside id='aside'>
-				<div className='react' ref={box}>
+				</div>{' '}
+				<aside id='aside' ref={aside}>
 					<div className='top'></div>
 					<div className='right'></div>
 					<div className='bottom'></div>
 					<div className='left'></div>
-					<div className='inner'>
+					<div className='box'>
 						<img
-							className='pic'
+							className='asidePic'
 							src={`${process.env.PUBLIC_URL}/img/aside.jpg`}
 							alt='액자가 걸려있는 침실 인테리어 사진'
 						/>
@@ -131,16 +130,17 @@ function Visual() {
 								Est quia minima aut quos numquam dolor repellendus expedita dignissimos, optio
 								excepturi fugiat eum rerum quasi perferendis neque, placeat nam delectus deserunt.
 							</p>
-							<a href='#' className='btnViewClose' onClick={closeBox}>
+							<a href='#' className='btnViewClose'>
 								<img
 									src={`${process.env.PUBLIC_URL}/img/close.png`}
 									alt='view content를 닫는 기능을 하는 X 버튼'
+									onClick={closeBox}
 								/>
 							</a>
 						</div>
 					</div>
-				</div>
-			</aside> */}
+				</aside>
+			</div>
 		</figure>
 	);
 }

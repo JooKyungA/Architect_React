@@ -2,18 +2,14 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebookF, faInstagram, faTwitter } from '@fortawesome/free-brands-svg-icons';
 
 import { Link } from 'react-router-dom';
-import { useRef } from 'react';
+import { useState } from 'react';
 
 function Header(props) {
-	// const btnCallRef = useRef(null);
-	// const menuMoRef = useRef(null);
-	// console.log(btnCallRef);
-	// console.log(menuMoRef);
-	// const btnCallClick = (e) => {
-	// 	e.preventDefault();
-	// 	btnCallRef.current.classList.toggle('on');
-	// 	menuMoRef.current.classList.toggle('on');
-	// };
+	const [IsOn, setIsOn] = useState('');
+	const btnCallClick = (e) => {
+		e.preventDefault();
+		IsOn == '' ? setIsOn('on') : setIsOn('');
+	};
 	return (
 		<header className={`${props.type} scrollView`} id='header'>
 			<div className='inner'>
@@ -60,14 +56,16 @@ function Header(props) {
 						</li>
 					</ul>
 				</nav>
-				<Link to='/' className='btnCall'>
+				<Link
+					to='/'
+					className={`btnCall ${IsOn}`}
+					onClick={(e) => {
+						btnCallClick(e);
+					}}
+				>
 					<span>메뉴호출</span>
 				</Link>
-				{/* <a href='#' className='btnCall' ref={btnCallRef} onClick={(e) => btnCallClick}>
-					<span>메뉴호출</span>
-				</a> */}
-				<nav className='menuMo'>
-					{/* <nav className='menuMo' ref={menuMoRef}> */}
+				<nav className={`menuMo ${IsOn}`}>
 					<h1>
 						<Link to='/'>DCL ARCHITECTS</Link>
 						<p>Architecture&Interior</p>
