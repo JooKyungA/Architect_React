@@ -4,10 +4,10 @@ import Anime from '../../asset/anime';
 
 function Scroll() {
 	const posArr = useRef([]);
-	const num = useRef(5);
+	const num = useRef(6);
 	const scrollSpeed = useRef(500);
 	const btnRef = useRef(null);
-	const btnName = ['HOME', 'ABOUT', 'PORTFOLIO', 'AWARDS', 'BLOG'];
+	const btnName = ['HOME', 'ABOUT', 'PORTFOLIO', 'AWARDS', 'BLOG', 'NEWS'];
 
 	const getPos = () => {
 		posArr.current = [];
@@ -41,7 +41,7 @@ function Scroll() {
 			window.removeEventListener('resize', getPos);
 			window.removeEventListener('scroll', scrollActive);
 		};
-	}, []);
+	}, [getPos]);
 
 	return (
 		<ul className='btnScroll' ref={btnRef}>

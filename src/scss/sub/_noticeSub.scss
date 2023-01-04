@@ -1,0 +1,110 @@
+.NoticeSub {
+	> .inner {
+		.inputBox {
+			width: 100%;
+			border: 1px solid rgb(110, 109, 109);
+			padding: 50px;
+			margin-bottom: 50px;
+
+			input[type='text'],
+			textarea {
+				width: 100%;
+				padding: 8px 10px;
+				border: none;
+				border-bottom: 2px solid #333;
+				box-shadow: inset 2px 2px 5px rgba(255, 255, 255, 0.1);
+				resize: none;
+				background: none;
+				color: #9a9a9a;
+				&:focus {
+					outline: none;
+				}
+			}
+			input[type='text'] {
+				margin-bottom: 25px;
+			}
+			textarea {
+				margin-bottom: 40px;
+			}
+
+			.btnSet {
+				display: flex;
+				justify-content: center;
+				button {
+					width: 150px;
+					height: 30px;
+					display: inline-block;
+					border: none;
+					background: linear-gradient(45deg, rgb(103, 103, 103), rgb(123, 121, 121));
+					color: #efefef;
+					cursor: pointer;
+					margin-right: 20px;
+					transition: 0.5s;
+					&:hover {
+						background: linear-gradient(45deg, rgb(250, 158, 59), rgb(203, 119, 10));
+					}
+				}
+			}
+		}
+
+		.showBox {
+			width: 100%;
+			border: 1px solid rgb(110, 109, 109);
+			padding: 50px;
+
+			article {
+				border: 1px solid #333;
+				box-shadow: 1px 1px 10px rgba(255, 255, 255, 0.1);
+				padding: 30px;
+				margin-bottom: 40px;
+				display: flex;
+				justify-content: space-between;
+				align-content: center;
+				flex-wrap: wrap;
+				.txt {
+					width: calc(100% - 170px);
+					h2 {
+						margin-bottom: 10px;
+						color: #efefef;
+					}
+					p {
+						color: #9a9a9a;
+					}
+					input,
+					textarea {
+						width: 100%;
+						padding: 8px 10px;
+						margin-bottom: 20px;
+						background: rgba(255, 255, 255, 0.1);
+						&:focus {
+							outline: none;
+						}
+					}
+					textarea {
+						margin-bottom: 0px;
+					}
+				}
+				.btnSet {
+					width: 120px;
+					display: flex;
+					align-items: center;
+					margin-top: 20px;
+					justify-content: flex-end;
+					gap: 10px;
+					button {
+						background: transparent;
+						margin: 10px;
+						cursor: pointer;
+						border: none;
+						&:nth-of-type(1) {
+							color: orange;
+						}
+						&:nth-of-type(2) {
+							color: orangered;
+						}
+					}
+				}
+			}
+		}
+	}
+}

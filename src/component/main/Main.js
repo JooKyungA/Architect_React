@@ -5,6 +5,7 @@ import PortfolioMain from './PortfolioMain';
 import Awards from './Awards';
 import Blog from './Blog';
 import Scroll from './Scroll';
+import NoticeMain from './NoticeMain';
 
 function Main() {
 	return (
@@ -15,6 +16,7 @@ function Main() {
 			<PortfolioMain />
 			<Awards />
 			<Blog />
+			<NoticeMain />
 			<Scroll />
 		</main>
 	);

@@ -1,0 +1,46 @@
+{
+  "awards": [
+    {
+      "year": "2022",
+      "award": "Spaciux Design Award",
+      "pic": "pic1.jpg",
+      "alt": "2022년 Spaciux Design Award에서 수상한 건축물 사진",
+      "txt": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Excepturi eum maxime"
+    },
+    {
+      "year": "2021",
+      "award": "Aga Khan Award for Architecture",
+      "pic": "pic2.jpg",
+      "alt": "2021년 Aga Khan Award for Architecture에서 수상한 건축물 사진",
+      "txt": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Excepturi eum maxime"
+    },
+    {
+      "year": "2020",
+      "award": "Carlsberg Architectural Prize",
+      "pic": "pic3.jpg",
+      "alt": "2020년 Carlsberg Architectural Prize에서 수상한 건축물 사진",
+      "txt": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Excepturi eum maxime"
+    },
+    {
+      "year": "2019",
+      "award": "Erich Schelling Architecture Award",
+      "pic": "pic4.jpg",
+      "alt": "2019년 Erich Schelling Architecture Award에서 수상한 건축물 사진",
+      "txt": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Excepturi eum maxime"
+    },
+    {
+      "year": "2018",
+      "award": "World Architecture Festival",
+      "pic": "pic5.jpg",
+      "alt": "2018년 World Architecture Festival에서 수상한 건축물 사진",
+      "txt": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Excepturi eum maxime"
+    },
+    {
+      "year": "2017",
+      "award": "International Architecture Awards",
+      "pic": "pic6.jpg",
+      "alt": "2017년 International Architecture Awards에서 수상한 건축물 사진",
+      "txt": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Excepturi eum maxime"
+    }
+  ]
+}

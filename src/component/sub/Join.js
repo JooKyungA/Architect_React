@@ -98,6 +98,7 @@ function Join() {
 		if (len === 0 && Submit) {
 			alert('회원가입이 완료되었습니다.');
 			history.push('/JoinResult');
+			window.scrollTo(0, 0);
 		}
 	}, [Err, Submit, history]);
 
@@ -112,7 +113,7 @@ function Join() {
 				<fieldset>
 					<legend className='hidden'>회원가입 폼 입력 양식</legend>
 					<h2>회원약관</h2>
-					<textarea name='terms' id='terms'>
+					<textarea name='terms' id='terms' cols='30' rows='10'>
 						제 1 장 총 칙 제 1 조 (목적) 본 이용약관(이하 '약관'이라 합니다)은 DCL ARCHITECTS와 이용
 						고객(이하 '회원'이라 합니다)간에 DCL ARCHITECTS가 제공하는 홈페이지 서비스(이하
 						'홈페이지' 또는 '서비스'라 합니다)의 가입조건 및 이용에 관한 제반 사항과 기타 필요한

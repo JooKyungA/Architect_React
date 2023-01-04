@@ -207,6 +207,8 @@ function Contact() {
 							<textarea
 								name='contact_message'
 								id='contact_message'
+								cols='30'
+								rows='10'
 								value={Val.contact_message}
 								onChange={handleChange}
 							></textarea>
