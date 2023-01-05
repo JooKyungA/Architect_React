@@ -1,26 +1,49 @@
-import { useEffect } from 'react';
+import { useEffect, forwardRef, useState, useImperativeHandle } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 
-function Modal(props) {
-	useEffect(() => {
-		document.body.style.overflow = 'hidden';
+const Modal = forwardRef((props, ref) => {
+	const [Open, setOpen] = useState(false);
 
-		return () => {
-			document.body.style.overflow = 'auto';
+	useImperativeHandle(ref, () => {
+		return {
+			open: () => setOpen(true),
 		};
-	}, []);
+	});
+
+	useEffect(() => {
+		Open ? (document.body.style.overflow = 'hidden') : (document.body.style.overflow = 'auto');
+	}, [Open]);
+
 	return (
-		<aside className='modal'>
-			<div className='box'>{props.children}</div>
-			<span
-				className='close'
-				onClick={() => {
-					props.setOpen(false);
-				}}
-			>
-				+
-			</span>
-		</aside>
+		<AnimatePresence>
+			{Open && (
+				<motion.aside
+					className='modal'
+					initial={{ opacity: 0, scale: 0, rotate: 30 }}
+					animate={{ opacity: 1, scale: 1, rotate: 0, transition: { duration: 1 } }}
+					exit={{ opacity: 0, x: '50%', transition: { duration: 0.5, delay: 0.5 } }}
+				>
+					<motion.div
+						className='box'
+						initial={{ opacity: 0 }}
+						animate={{ opacity: 1, transition: { delay: 1 } }}
+						exit={{ opacity: 0 }}
+					>
+						{props.children}
+					</motion.div>
+					<motion.span
+						initial={{ opacity: 0, x: 100 }}
+						animate={{ opacity: 1, x: 0, rotate: 45, transition: { delay: 1 } }}
+						exit={{ opacity: 0, x: 100 }}
+						className='close'
+						onClick={() => setOpen(false)}
+					>
+						+
+					</motion.span>
+				</motion.aside>
+			)}
+		</AnimatePresence>
 	);
-}
+});
 
 export default Modal;

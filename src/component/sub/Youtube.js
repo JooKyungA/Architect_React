@@ -1,11 +1,11 @@
 import Layout from '../common/Layout';
 import axios from 'axios';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import Modal from '../common/Modal';
 
 function Youtube() {
+	const modal = useRef(null);
 	const [Items, setItems] = useState([]);
-	const [open, setOpen] = useState(false);
 	const [index, setIndex] = useState(0);
 	useEffect(() => {
 		const key = 'AIzaSyCe4VTdOeeczNpK2P90-h1K2ZmPWygTVOY';
@@ -14,7 +14,6 @@ function Youtube() {
 		const url = `https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&key=${key}&playlistId=${playlistId}&maxResults=${num}`;
 
 		axios.get(url).then((json) => {
-			console.log(json.data.items);
 			setItems(json.data.items);
 		});
 	}, []);
@@ -36,8 +35,8 @@ function Youtube() {
 								<div
 									className='pic'
 									onClick={() => {
-										setOpen(true);
 										setIndex(idx);
+										modal.current.open();
 									}}
 								>
 									<img src={data.snippet.thumbnails.high.url} alt={data.snippet.title} />
@@ -52,14 +51,12 @@ function Youtube() {
 					})}
 				</div>
 			</Layout>
-			{open && (
-				<Modal setOpen={setOpen}>
-					<iframe
-						title={Items[index].id}
-						src={`https://www.youtube.com/embed/${Items[index].snippet.resourceId.videoId}`}
-					></iframe>
-				</Modal>
-			)}
+			<Modal ref={modal}>
+				<iframe
+					title={Items[index]?.id}
+					src={`https://www.youtube.com/embed/${Items[index]?.snippet.resourceId.videoId}`}
+				></iframe>
+			</Modal>
 		</>
 	);
 }

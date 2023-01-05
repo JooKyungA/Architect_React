@@ -29,10 +29,8 @@
 		font-weight: bold;
 		color: rgb(203, 119, 10);
 		cursor: pointer;
-		transform: rotate(45deg);
-		transition: scale 0.5s;
 		&:hover {
-			text-shadow: 1px 1px 5px rgba(255, 255, 255, 0.5);
+			text-shadow: 1px 1px 5px rgba(255, 255, 255, 0.4);
 		}
 	}
 }

@@ -63,7 +63,7 @@ function NoticeMain({ Scrolled, currentPos }) {
 	return (
 		<section id='noticeMain' className='scrollView'>
 			<div className='inner'>
-				<h1>NEWS</h1>
+				<h1>NOTICE</h1>
 				<Link to='/notice'>
 					VIEW MORE <FontAwesomeIcon icon={faArrowRight} />
 				</Link>
