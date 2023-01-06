@@ -3,7 +3,7 @@ import axios from 'axios';
 import { useEffect, useState, useRef } from 'react';
 import Modal from '../common/Modal';
 
-function Youtube() {
+function YoutubeSub() {
 	const modal = useRef(null);
 	const [Items, setItems] = useState([]);
 	const [index, setIndex] = useState(0);
@@ -19,7 +19,7 @@ function Youtube() {
 	}, []);
 	return (
 		<>
-			<Layout name={'Youtube'}>
+			<Layout name={'YoutubeSub'}>
 				<h1>YOUTUBE</h1>
 				<p>
 					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem, id asperiores quas mollitia
@@ -61,4 +61,4 @@ function Youtube() {
 	);
 }
 
-export default Youtube;
+export default YoutubeSub;

@@ -8,20 +8,21 @@ $mobile: 539px;
 @import 'common/header';
 @import 'common/footer';
 @import 'common/modal';
+@import 'common/menu';
 
 // main
 @import 'main/visual';
 @import 'main/aboutMain';
 @import 'main/portfolioMain';
 @import 'main/awards';
-@import 'main/blog';
+@import 'main/youtubeMain';
 @import 'main/noticeMain';
 @import 'main/scroll';
 
 // sub
 @import 'sub/aboutSub';
 @import 'sub/portfolioSub';
-@import 'sub/youtube';
+@import 'sub/YoutubeSub';
 @import 'sub/contact';
 @import 'sub/noticeSub';
 @import 'sub/join';

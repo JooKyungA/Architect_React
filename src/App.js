@@ -1,8 +1,10 @@
 import { Route, Switch } from 'react-router-dom';
+import { useRef } from 'react';
 
 // common
 import Header from './component/common/Header';
 import Footer from './component/common/Footer';
+import Menu from './component/common/Menu';
 
 // main
 import Main from './component/main/Main';
@@ -10,7 +12,7 @@ import Main from './component/main/Main';
 // sub
 import About from './component/sub/AboutSub';
 import Portfolio from './component/sub/PortfolioSub';
-import Youtube from './component/sub/Youtube';
+import Youtube from './component/sub/YoutubeSub';
 import Contact from './component/sub/Contact';
 import Notice from './component/sub/NoticeSub';
 import Join from './component/sub/Join';
@@ -20,11 +22,12 @@ import ContactResult from './component/sub/ContactResult';
 import './scss/style.scss';
 
 function App() {
+	const menuOpen = useRef(null);
 	return (
 		<>
 			<Switch>
-				<Route exact path='/' component={Main} />
-				<Route path='/' render={() => <Header type={'sub'} />} />
+				<Route exact path='/' render={() => <Main menuOpen={menuOpen} />} />
+				<Route path='/' render={() => <Header type={'sub'} menuOpen={menuOpen} />} />
 			</Switch>
 
 			<Route path='/about' component={About} />
@@ -37,6 +40,8 @@ function App() {
 			<Route path='/contactResult' component={ContactResult} />
 
 			<Footer />
+
+			<Menu ref={menuOpen} />
 		</>
 	);
 }

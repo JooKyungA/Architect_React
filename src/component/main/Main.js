@@ -3,19 +3,19 @@ import Visual from './Visual';
 import AboutMain from './AboutMain';
 import PortfolioMain from './PortfolioMain';
 import Awards from './Awards';
-import Blog from './Blog';
+import YoutubeMain from './YoutubeMain';
 import Scroll from './Scroll';
 import NoticeMain from './NoticeMain';
 
-function Main() {
+function Main({ menuOpen }) {
 	return (
 		<main>
-			<Header type={'main'} />
+			<Header type={'main'} menuOpen={menuOpen} />
 			<Visual />
 			<AboutMain />
 			<PortfolioMain />
 			<Awards />
-			<Blog />
+			<YoutubeMain />
 			<NoticeMain />
 			<Scroll />
 		</main>

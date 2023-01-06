@@ -111,17 +111,6 @@ function PortfolioSub() {
 								</li>
 							);
 						})}
-						<li className='item'>
-							{/* article */}
-							<div>
-								{/* inner */}
-								<a href=''>
-									{/* pic */}
-									<img src='' alt='' />
-								</a>
-								<p></p>
-							</div>
-						</li>
 					</Masonry>
 				</section>
 			</Layout>

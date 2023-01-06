@@ -1,4 +1,4 @@
-#blog {
+#youtubeMain {
 	width: 100%;
 	.inner {
 		width: 1180px;
@@ -96,7 +96,7 @@
 
 // tablet - 1179px--------------------
 @media screen and (max-width: $tablet) {
-	#blog {
+	#youtubeMain {
 		.inner {
 			width: 100%;
 			padding: 5vw 5vw 5vw;
@@ -106,7 +106,7 @@
 
 // middle - 935px--------------------
 @media screen and (max-width: $middle) {
-	#blog {
+	#youtubeMain {
 		.inner {
 			.wrap {
 				flex-wrap: wrap;
@@ -130,7 +130,7 @@
 
 // mobile - 539px -------------------
 @media screen and (max-width: $mobile) {
-	#blog {
+	#youtubeMain {
 		.inner {
 			.wrap {
 				article {

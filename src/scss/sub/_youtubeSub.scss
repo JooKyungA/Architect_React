@@ -1,4 +1,4 @@
-.Youtube {
+.YoutubeSub {
 	.inner {
 		.vidList {
 			width: 100%;
@@ -63,7 +63,7 @@
 // middle - 935px--------------------
 
 @media screen and (max-width: $middle) {
-	.Youtube {
+	.YoutubeSub {
 		.inner {
 			.vidList {
 				article {
@@ -77,7 +77,7 @@
 
 // mobile - 539px -------------------
 @media screen and (max-width: $mobile) {
-	.Youtube {
+	.YoutubeSub {
 		.inner {
 			.vidList {
 				article {
