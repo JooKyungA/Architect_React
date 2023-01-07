@@ -19,10 +19,23 @@ import Join from './component/sub/Join';
 import JoinResult from './component/sub/JoinResult';
 import ContactResult from './component/sub/ContactResult';
 
+// scss
 import './scss/style.scss';
+
+// redux
+import { fetchYoutube } from './redux/youtubeSlice';
+import { useDispatch } from 'react-redux';
+import { useEffect } from 'react';
 
 function App() {
 	const menuOpen = useRef(null);
+
+	const dispatch = useDispatch();
+
+	useEffect(() => {
+		dispatch(fetchYoutube());
+	}, [dispatch]);
+
 	return (
 		<>
 			<Switch>

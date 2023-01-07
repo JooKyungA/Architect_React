@@ -1,22 +1,24 @@
 import Layout from '../common/Layout';
-import axios from 'axios';
-import { useEffect, useState, useRef } from 'react';
+// import axios from 'axios';
+import { useState, useRef } from 'react';
+import { useSelector } from 'react-redux';
 import Modal from '../common/Modal';
 
 function YoutubeSub() {
 	const modal = useRef(null);
-	const [Items, setItems] = useState([]);
+	// const [Items, setItems] = useState([]);
 	const [index, setIndex] = useState(0);
-	useEffect(() => {
-		const key = 'AIzaSyCe4VTdOeeczNpK2P90-h1K2ZmPWygTVOY';
-		const playlistId = 'PLB11APmWdapRtpUvss55ipqwUpcIxj3Eq';
-		const num = 9;
-		const url = `https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&key=${key}&playlistId=${playlistId}&maxResults=${num}`;
+	const Items = useSelector((store) => store.youtube.data);
+	// useEffect(() => {
+	// 	const key = 'AIzaSyCe4VTdOeeczNpK2P90-h1K2ZmPWygTVOY';
+	// 	const playlistId = 'PLB11APmWdapRtpUvss55ipqwUpcIxj3Eq';
+	// 	const num = 9;
+	// 	const url = `https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&key=${key}&playlistId=${playlistId}&maxResults=${num}`;
 
-		axios.get(url).then((json) => {
-			setItems(json.data.items);
-		});
-	}, []);
+	// 	axios.get(url).then((json) => {
+	// 		setItems(json.data.items);
+	// 	});
+	// }, []);
 	return (
 		<>
 			<Layout name={'YoutubeSub'}>
