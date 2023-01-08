@@ -7,14 +7,13 @@ import { useSelector, useDispatch } from 'react-redux';
 
 function PortfolioSub() {
 	const dispatch = useDispatch();
+	const modal = useRef(null);
 	const masonryOptions = { transitionDuration: '0.5s' };
 	const frame = useRef(null);
 	const input = useRef(null);
-	const modal = useRef(null);
 	const btns = useRef(null);
 	const [Loading, setLoading] = useState(true);
 	const [Index, setIndex] = useState(0);
-	// const [IsOn, setIsOn] = useState(false);
 	const user_id = '197141079@N07';
 	const photoset_ids = [
 		'72177720305070823',
@@ -47,8 +46,8 @@ function PortfolioSub() {
 		setLoading(true);
 	};
 
-	const showPhotosets = (index) => {
-		dispatch(fetchFlickr({ type: 'photosets', user: user_id, photoset: photoset_ids[index] }));
+	const showPhotosets = (idx) => {
+		dispatch(fetchFlickr({ type: 'photosets', user: user_id, photoset: photoset_ids[idx] }));
 		frame.current.classList.remove('on');
 		setLoading(true);
 	};
