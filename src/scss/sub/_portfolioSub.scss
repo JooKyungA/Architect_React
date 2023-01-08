@@ -5,6 +5,7 @@
 			display: flex;
 			justify-content: flex-end;
 			overflow: hidden;
+			margin-bottom: 50px;
 			font-size: 0;
 			input[type='text'] {
 				width: 300px;
@@ -34,16 +35,52 @@
 				}
 			}
 		}
+		.btns {
+			display: flex;
+			justify-content: flex-end;
+			button {
+				display: flex;
+				justify-content: flex-end;
+				border: none;
+				background: transparent;
+				font-size: 14px;
+				color: #9a9a9a;
+				cursor: pointer;
+				margin: 0px 10px;
+				position: relative;
+				transition: 0.5s;
+				&::after {
+					content: '';
+					display: block;
+					width: 0px;
+					height: 2px;
+					position: absolute;
+					bottom: 0;
+					left: 0;
+					background-color: rgb(203, 119, 10);
+					transition: 0.5s;
+				}
+				&:hover {
+					color: rgb(203, 119, 10);
+					&::after {
+						width: 100%;
+					}
+				}
+				&.on {
+					color: rgb(203, 119, 10);
+				}
+			}
+		}
 		.loading {
 			width: 200px;
 			position: absolute;
-			top: 420px;
+			top: 450px;
 			left: 50%;
 			transform: translateX(-50%);
 		}
 		#gallery {
 			width: 100%;
-			padding: 50px 0px;
+			padding: 30px 0px 50px;
 			overflow: hidden;
 			&.on .list {
 				opacity: 1;

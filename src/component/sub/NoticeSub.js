@@ -1,5 +1,7 @@
 import Layout from '../common/Layout';
 import { useState, useEffect, useRef } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPenToSquare, faTrashCan } from '@fortawesome/free-solid-svg-icons';
 
 function NoticeSub() {
 	const getLocalData = () => {
@@ -134,14 +136,14 @@ function NoticeSub() {
 												enableUpdate(idx);
 											}}
 										>
-											EDIT
+											<FontAwesomeIcon icon={faPenToSquare} />
 										</button>
 										<button
 											onClick={() => {
 												deletePost(idx);
 											}}
 										>
-											DELETE
+											<FontAwesomeIcon icon={faTrashCan} />
 										</button>
 									</div>
 								</>

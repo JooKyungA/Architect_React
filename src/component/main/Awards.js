@@ -14,7 +14,6 @@ function Awards() {
 			<div className='inner'>
 				<h1>AWARDS</h1>
 				<div className='wrap'>
-					{/* award_tab map 반복 */}
 					{AwardList.map((data, idx) => {
 						return (
 							<div className='award_tab' key={data.award}>

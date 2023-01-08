@@ -98,9 +98,21 @@
 						border: none;
 						&:nth-of-type(1) {
 							color: orange;
+							svg {
+								font-size: 18px;
+								path {
+									color: orange;
+								}
+							}
 						}
 						&:nth-of-type(2) {
 							color: orangered;
+							svg {
+								font-size: 18px;
+								path {
+									color: orangered;
+								}
+							}
 						}
 					}
 				}

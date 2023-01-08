@@ -16,7 +16,7 @@ function PortfolioMain() {
 		const result = await axios.get(`${process.env.PUBLIC_URL}/DB/mainPortfolio.json`);
 		setData(result.data.mainPortfolio);
 
-		fetchIndex(0);
+		photosetIndex(0);
 	}, []);
 
 	const linkPrevent = (e) => {
@@ -30,7 +30,7 @@ function PortfolioMain() {
 		'72177720305050761',
 	];
 
-	const fetchIndex = (idx) => {
+	const photosetIndex = (idx) => {
 		dispatch(
 			fetchFlickr({ type: 'photosets', user: '197141079@N07', photoset: photoset_ids[idx] })
 		);
@@ -55,7 +55,7 @@ function PortfolioMain() {
 										className={isOn}
 										onClick={() => {
 											setIndex(idx);
-											fetchIndex(idx);
+											photosetIndex(idx);
 										}}
 									>
 										<a href='#' onClick={(e) => linkPrevent(e)}>
@@ -71,7 +71,7 @@ function PortfolioMain() {
 							{pics.map((pic, idx) => {
 								if (idx >= 3) return null;
 								return (
-									<div>
+									<div key={pic.id}>
 										<img
 											key={idx}
 											src={`https://live.staticflickr.com/${pic.server}/${pic.id}_${pic.secret}_m.jpg`}
@@ -86,7 +86,7 @@ function PortfolioMain() {
 							{pics.map((pic, idx) => {
 								if (idx >= 3) return null;
 								return (
-									<div>
+									<div key={pic.id}>
 										<img
 											key={idx}
 											src={`https://live.staticflickr.com/${pic.server}/${pic.id}_${pic.secret}_m.jpg`}
@@ -101,7 +101,7 @@ function PortfolioMain() {
 							{pics.map((pic, idx) => {
 								if (idx >= 3) return null;
 								return (
-									<div>
+									<div key={pic.id}>
 										<img
 											key={idx}
 											src={`https://live.staticflickr.com/${pic.server}/${pic.id}_${pic.secret}_m.jpg`}
@@ -116,7 +116,7 @@ function PortfolioMain() {
 							{pics.map((pic, idx) => {
 								if (idx >= 3) return null;
 								return (
-									<div>
+									<div key={pic.id}>
 										<img
 											key={idx}
 											src={`https://live.staticflickr.com/${pic.server}/${pic.id}_${pic.secret}_m.jpg`}
@@ -127,8 +127,6 @@ function PortfolioMain() {
 								);
 							})}
 						</article>
-						{/* );
-						})} */}
 					</section>
 				</div>
 			</div>

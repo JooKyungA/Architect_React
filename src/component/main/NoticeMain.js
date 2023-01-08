@@ -52,7 +52,6 @@ function NoticeMain({ Scrolled, currentPos }) {
 	const base = -window.innerHeight / 3;
 
 	let scroll = Scrolled - base - currentPos || 0;
-	console.log(`Scrolled ${Scrolled}`, `currentPos ${currentPos}`, `scroll=${scroll}`);
 
 	scroll < 0 && (scroll = 0);
 

@@ -1,4 +1,7 @@
 import { useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
 
 function Youtube() {
 	const Items = useSelector((store) => store.youtube.data);
@@ -6,6 +9,9 @@ function Youtube() {
 		<section id='youtubeMain' className='scrollView'>
 			<div className='inner'>
 				<h1>YOUTUBE</h1>
+				<Link to='/about'>
+					VIEW MORE <FontAwesomeIcon icon={faArrowRight} />
+				</Link>
 				<div className='wrap'>
 					{Items.map((data, idx) => {
 						if (idx >= 3) return null;

@@ -11,16 +11,25 @@ function PortfolioSub() {
 	const frame = useRef(null);
 	const input = useRef(null);
 	const modal = useRef(null);
+	const btns = useRef(null);
 	const [Loading, setLoading] = useState(true);
 	const [Index, setIndex] = useState(0);
+	// const [IsOn, setIsOn] = useState(false);
 	const user_id = '197141079@N07';
-	// const photoset_ids = [
-	// 	'72177720305070823',
-	// 	'72177720305050751',
-	// 	'72177720305054577',
-	// 	'72177720305050761',
-	// ];
+	const photoset_ids = [
+		'72177720305070823',
+		'72177720305050751',
+		'72177720305054577',
+		'72177720305050761',
+	];
 	const Items = useSelector((store) => store.flickr.data);
+
+	const IsOn = (e) => {
+		for (let i of btns.current.children) {
+			i.classList.remove('on');
+		}
+		e.target.classList.add('on');
+	};
 
 	const showUser = () => {
 		dispatch(fetchFlickr({ type: 'user', user: user_id }));
@@ -37,15 +46,11 @@ function PortfolioSub() {
 		setLoading(true);
 	};
 
-	// const showPhotosets = () => {
-	// 	dispatch(fetchFlickr({ type: 'photosets', user: user_id, photoset: photoset_ids }));
-	// 	frame.current.classList.remove('on');
-	// 	setLoading(true);
-	// };
-
-	useEffect(() => {
-		showUser();
-	}, []);
+	const showPhotosets = (index) => {
+		dispatch(fetchFlickr({ type: 'photosets', user: user_id, photoset: photoset_ids[index] }));
+		frame.current.classList.remove('on');
+		setLoading(true);
+	};
 
 	useEffect(() => {
 		setTimeout(() => {
@@ -75,6 +80,41 @@ function PortfolioSub() {
 						SEARCH
 					</button>
 				</section>
+				<div className='btns' ref={btns}>
+					<button onClick={showUser}>ALL</button>
+					<button
+						onClick={(e) => {
+							IsOn(e);
+							showPhotosets(0);
+						}}
+					>
+						HOUSE
+					</button>
+					<button
+						onClick={(e) => {
+							IsOn(e);
+							showPhotosets(1);
+						}}
+					>
+						OFFICE
+					</button>
+					<button
+						onClick={(e) => {
+							IsOn(e);
+							showPhotosets(2);
+						}}
+					>
+						RESTAURANT
+					</button>
+					<button
+						onClick={(e) => {
+							IsOn(e);
+							showPhotosets(3);
+						}}
+					>
+						OTHERS
+					</button>
+				</div>
 				{Loading && (
 					<img
 						src={`${process.env.PUBLIC_URL}/img/loading.gif`}

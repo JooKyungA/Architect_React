@@ -19,6 +19,30 @@
 			opacity: 0;
 			transition: 1s;
 		}
+		> a {
+			display: block;
+			float: right;
+			margin-top: -70px;
+			color: rgb(203, 119, 10);
+			transform: translateX(100%);
+			opacity: 0;
+			transition: transform 1s 1.2s, opacity 1s 1.2s, color 0.5s;
+			svg {
+				path {
+					color: rgb(203, 119, 10);
+					transition: 0.5s;
+				}
+			}
+			&:hover {
+				color: rgb(249, 173, 110);
+				svg {
+					path {
+						color: rgb(249, 173, 110);
+					}
+				}
+			}
+		}
+
 		.wrap {
 			width: 100%;
 			float: right;
@@ -77,6 +101,10 @@
 				transform: translateY(0%);
 				opacity: 1;
 			}
+			> a {
+				transform: translateX(0%);
+				opacity: 1;
+			}
 			.wrap {
 				article {
 					transform: translateY(0%);
@@ -125,6 +153,12 @@
 @media screen and (max-width: $mobile) {
 	#youtubeMain {
 		.inner {
+			h1 {
+				margin-bottom: 50px;
+			}
+			> a {
+				margin-top: -40px;
+			}
 			.wrap {
 				article {
 					width: 100%;

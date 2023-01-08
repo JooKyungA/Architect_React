@@ -68,6 +68,7 @@ function Contact() {
 		if (len === 0 && Submit) {
 			alert('제출이 완료되었습니다.');
 			history.push('/contactResult');
+			window.scrollTo(0, 0);
 		}
 	}, [Err, Submit, history]);
 
