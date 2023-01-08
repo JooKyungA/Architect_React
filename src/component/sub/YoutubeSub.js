@@ -6,19 +6,8 @@ import Modal from '../common/Modal';
 
 function YoutubeSub() {
 	const modal = useRef(null);
-	// const [Items, setItems] = useState([]);
 	const [index, setIndex] = useState(0);
 	const Items = useSelector((store) => store.youtube.data);
-	// useEffect(() => {
-	// 	const key = 'AIzaSyCe4VTdOeeczNpK2P90-h1K2ZmPWygTVOY';
-	// 	const playlistId = 'PLB11APmWdapRtpUvss55ipqwUpcIxj3Eq';
-	// 	const num = 9;
-	// 	const url = `https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&key=${key}&playlistId=${playlistId}&maxResults=${num}`;
-
-	// 	axios.get(url).then((json) => {
-	// 		setItems(json.data.items);
-	// 	});
-	// }, []);
 	return (
 		<>
 			<Layout name={'YoutubeSub'}>

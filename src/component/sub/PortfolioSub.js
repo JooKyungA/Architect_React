@@ -13,6 +13,7 @@ function PortfolioSub() {
 	const [Loading, setLoading] = useState(true);
 	const [Index, setIndex] = useState(0);
 	const user_id = '197141079@N07';
+	const photoset_id = '72177720305070823';
 
 	const getFlickr = async (opt) => {
 		const base = 'https://www.flickr.com/services/rest/?format=json&nojsoncallback=1';
@@ -20,21 +21,30 @@ function PortfolioSub() {
 		const key = 'ae5dbef0587895ed38171fcda4afb648';
 		const method_user = 'flickr.people.getPhotos';
 		const method_search = 'flickr.photos.search';
-		const per_page = 30;
+		const method_photosets = 'flickr.photosets.getPhotos';
+		const per_page = 25;
 		if (opt.type === 'user') {
 			url = `${base}&method=${method_user}&api_key=${key}&per_page=${per_page}&user_id=${opt.user}`;
 		}
 		if (opt.type === 'search') {
 			url = `${base}&method=${method_search}&api_key=${key}&per_page=${per_page}&tags=${opt.tags}`;
 		}
+		if (opt.type === 'photosets') {
+			url = `${base}&method=${method_photosets}&api_key=${key}&per_page=${per_page}&user_id=${opt.user}&photoset_id=${opt.photoset}`;
+		}
 
 		const result = await axios.get(url);
-		if (result.data.photos.photo.length === 0) {
-			frame.current.classList.add('on');
-			setLoading(false);
-			return alert('검색하신 이미지의 데이터가 없습니다');
+		if (opt.type === 'photosets') {
+			setItems(result.data.photoset.photo);
+		} else {
+			if (result.data.photos.photo.length === 0) {
+				frame.current.classList.add('on');
+				setLoading(false);
+				return alert('해당  검색어의 결과 이미지가 없습니다.');
+			}
+			setItems(result.data.photos.photo);
 		}
-		setItems(result.data.photos.photo);
+
 		setTimeout(() => {
 			frame.current.classList.add('on');
 			setLoading(false);
@@ -56,8 +66,15 @@ function PortfolioSub() {
 		setLoading(true);
 	};
 
+	const showPhotosets = () => {
+		getFlickr({ type: 'photosets', user: user_id, photoset: photoset_id });
+		frame.current.classList.remove('on');
+		setLoading(true);
+	};
+
 	useEffect(() => {
 		showUser();
+		// showPhotosets();
 	}, []);
 
 	return (

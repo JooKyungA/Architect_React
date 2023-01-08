@@ -41,6 +41,11 @@ function PortfolioMain() {
 						</ul>
 					</div>
 					<section>
+						<article>
+							<div>
+								<img src='' alt='' />
+							</div>
+						</article>
 						{Data.map((el, idx) => {
 							let isOn = '';
 							Index === idx ? (isOn = 'on') : (isOn = '');
