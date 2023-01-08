@@ -67,52 +67,7 @@ function PortfolioMain() {
 						</ul>
 					</div>
 					<section>
-						<article className={Index === 0 ? 'on' : ''}>
-							{pics.map((pic, idx) => {
-								if (idx >= 3) return null;
-								return (
-									<div key={pic.id}>
-										<img
-											key={idx}
-											src={`https://live.staticflickr.com/${pic.server}/${pic.id}_${pic.secret}_m.jpg`}
-											alt={pic.title}
-										/>
-										<p>{pic.title}</p>
-									</div>
-								);
-							})}
-						</article>
-						<article className={Index === 1 ? 'on' : ''}>
-							{pics.map((pic, idx) => {
-								if (idx >= 3) return null;
-								return (
-									<div key={pic.id}>
-										<img
-											key={idx}
-											src={`https://live.staticflickr.com/${pic.server}/${pic.id}_${pic.secret}_m.jpg`}
-											alt={pic.title}
-										/>
-										<p>{pic.title}</p>
-									</div>
-								);
-							})}
-						</article>
-						<article className={Index === 2 ? 'on' : ''}>
-							{pics.map((pic, idx) => {
-								if (idx >= 3) return null;
-								return (
-									<div key={pic.id}>
-										<img
-											key={idx}
-											src={`https://live.staticflickr.com/${pic.server}/${pic.id}_${pic.secret}_m.jpg`}
-											alt={pic.title}
-										/>
-										<p>{pic.title}</p>
-									</div>
-								);
-							})}
-						</article>
-						<article className={Index === 3 ? 'on' : ''}>
+						<article className='on'>
 							{pics.map((pic, idx) => {
 								if (idx >= 3) return null;
 								return (

@@ -24,7 +24,7 @@ function PortfolioSub() {
 	];
 	const Items = useSelector((store) => store.flickr.data);
 
-	const IsOn = (e) => {
+	const isOn = (e) => {
 		for (let i of btns.current.children) {
 			i.classList.remove('on');
 		}
@@ -40,6 +40,7 @@ function PortfolioSub() {
 	const showSearch = () => {
 		const tag = input.current.value.trim();
 		if (!tag) return alert('검색어를 입력하세요.');
+		if (Items.length === 0) return alert('검색하신 이미지의 데이터가 없습니다');
 		input.current.value = '';
 		dispatch(fetchFlickr({ type: 'search', tags: tag }));
 		frame.current.classList.remove('on');
@@ -84,7 +85,7 @@ function PortfolioSub() {
 					<button onClick={showUser}>ALL</button>
 					<button
 						onClick={(e) => {
-							IsOn(e);
+							isOn(e);
 							showPhotosets(0);
 						}}
 					>
@@ -92,7 +93,7 @@ function PortfolioSub() {
 					</button>
 					<button
 						onClick={(e) => {
-							IsOn(e);
+							isOn(e);
 							showPhotosets(1);
 						}}
 					>
@@ -100,7 +101,7 @@ function PortfolioSub() {
 					</button>
 					<button
 						onClick={(e) => {
-							IsOn(e);
+							isOn(e);
 							showPhotosets(2);
 						}}
 					>
@@ -108,7 +109,7 @@ function PortfolioSub() {
 					</button>
 					<button
 						onClick={(e) => {
-							IsOn(e);
+							isOn(e);
 							showPhotosets(3);
 						}}
 					>
