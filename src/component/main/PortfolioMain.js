@@ -2,19 +2,38 @@ import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
 import axios from 'axios';
+import { fetchFlickr } from '../../redux/flickrSlice';
 import { useEffect, useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 
 function PortfolioMain() {
+	const dispatch = useDispatch();
 	const [Data, setData] = useState([]);
 	const [Index, setIndex] = useState(0);
+	const pics = useSelector((store) => store.flickr.data);
 
 	useEffect(async () => {
 		const result = await axios.get(`${process.env.PUBLIC_URL}/DB/mainPortfolio.json`);
 		setData(result.data.mainPortfolio);
+
+		fetchIndex(0);
 	}, []);
 
 	const linkPrevent = (e) => {
 		e.preventDefault();
+	};
+
+	const photoset_ids = [
+		'72177720305070823',
+		'72177720305050751',
+		'72177720305054577',
+		'72177720305050761',
+	];
+
+	const fetchIndex = (idx) => {
+		dispatch(
+			fetchFlickr({ type: 'photosets', user: '197141079@N07', photoset: photoset_ids[idx] })
+		);
 	};
 
 	return (
@@ -31,7 +50,14 @@ function PortfolioMain() {
 								let isOn = '';
 								Index === idx ? (isOn = 'on') : (isOn = '');
 								return (
-									<li key={el.title} className={isOn} onClick={() => setIndex(idx)}>
+									<li
+										key={el.title}
+										className={isOn}
+										onClick={() => {
+											setIndex(idx);
+											fetchIndex(idx);
+										}}
+									>
 										<a href='#' onClick={(e) => linkPrevent(e)}>
 											{el.title}
 										</a>
@@ -41,31 +67,68 @@ function PortfolioMain() {
 						</ul>
 					</div>
 					<section>
-						<article>
-							<div>
-								<img src='' alt='' />
-							</div>
+						<article className={Index === 0 ? 'on' : ''}>
+							{pics.map((pic, idx) => {
+								if (idx >= 3) return null;
+								return (
+									<div>
+										<img
+											key={idx}
+											src={`https://live.staticflickr.com/${pic.server}/${pic.id}_${pic.secret}_m.jpg`}
+											alt={pic.title}
+										/>
+										<p>{pic.title}</p>
+									</div>
+								);
+							})}
 						</article>
-						{Data.map((el, idx) => {
-							let isOn = '';
-							Index === idx ? (isOn = 'on') : (isOn = '');
-							return (
-								<article className={isOn} key={el.title}>
+						<article className={Index === 1 ? 'on' : ''}>
+							{pics.map((pic, idx) => {
+								if (idx >= 3) return null;
+								return (
 									<div>
-										<img src={`${process.env.PUBLIC_URL}/img/${el.title}/${el.pic1}`} alt='' />
-										<p>{el.txt1}</p>
+										<img
+											key={idx}
+											src={`https://live.staticflickr.com/${pic.server}/${pic.id}_${pic.secret}_m.jpg`}
+											alt={pic.title}
+										/>
+										<p>{pic.title}</p>
 									</div>
+								);
+							})}
+						</article>
+						<article className={Index === 2 ? 'on' : ''}>
+							{pics.map((pic, idx) => {
+								if (idx >= 3) return null;
+								return (
 									<div>
-										<img src={`${process.env.PUBLIC_URL}/img/${el.title}/${el.pic2}`} alt='' />
-										<p>{el.txt2}</p>
+										<img
+											key={idx}
+											src={`https://live.staticflickr.com/${pic.server}/${pic.id}_${pic.secret}_m.jpg`}
+											alt={pic.title}
+										/>
+										<p>{pic.title}</p>
 									</div>
+								);
+							})}
+						</article>
+						<article className={Index === 3 ? 'on' : ''}>
+							{pics.map((pic, idx) => {
+								if (idx >= 3) return null;
+								return (
 									<div>
-										<img src={`${process.env.PUBLIC_URL}/img/${el.title}/${el.pic3}`} alt='' />
-										<p>{el.txt3}</p>
+										<img
+											key={idx}
+											src={`https://live.staticflickr.com/${pic.server}/${pic.id}_${pic.secret}_m.jpg`}
+											alt={pic.title}
+										/>
+										<p>{pic.title}</p>
 									</div>
-								</article>
-							);
-						})}
+								);
+							})}
+						</article>
+						{/* );
+						})} */}
 					</section>
 				</div>
 			</div>

@@ -24,6 +24,7 @@ import './scss/style.scss';
 
 // redux
 import { fetchYoutube } from './redux/youtubeSlice';
+import { fetchFlickr } from './redux/flickrSlice';
 import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 
@@ -32,8 +33,12 @@ function App() {
 
 	const dispatch = useDispatch();
 
+	const user_id = '197141079@N07';
+	const photoset_id = '72177720305070823';
+
 	useEffect(() => {
 		dispatch(fetchYoutube());
+		dispatch(fetchFlickr({ type: 'photosets', user: user_id, photoset: photoset_id }));
 	}, [dispatch]);
 
 	return (
