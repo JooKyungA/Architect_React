@@ -23,25 +23,13 @@ export const fetchFlickr = createAsyncThunk('flickr/requestFlickr', async (opt) 
 	if (opt.type === 'photosets') {
 		return response.data.photoset.photo;
 	} else {
-		if (response.data.photos.photo.length === 0) {
-			frame.current.classList.add('on');
-			setLoading(false);
-			return alert('해당  검색어의 결과 이미지가 없습니다.');
-		}
+		// if (response.data.photos.photo.length === 0) {
+		// 	frame.current.classList.add('on');
+		// 	setLoading(false);
+		// 	return alert('해당  검색어의 결과 이미지가 없습니다.');
+		// }
 		return response.data.photos.photo;
 	}
-
-	// const result = await axios.get(url);
-	// if (opt.type === 'photosets') {
-	//   setItems(result.data.photoset.photo);
-	// } else {
-	//   if (result.data.photos.photo.length === 0) {
-	//     frame.current.classList.add('on');
-	//     setLoading(false);
-	//     return alert('해당  검색어의 결과 이미지가 없습니다.');
-	//   }
-	//   setItems(result.data.photos.photo);
-	// }
 });
 
 const flickrSlice = createSlice({
