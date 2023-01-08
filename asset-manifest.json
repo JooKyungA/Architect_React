@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/react1103/static/css/main.3d78ae4f.css",
-    "main.js": "/react1103/static/js/main.e646dcf9.js",
+    "main.css": "/react1103/static/css/main.3470a353.css",
+    "main.js": "/react1103/static/js/main.38c1693d.js",
     "static/media/contact.jpg": "/react1103/static/media/contact.31b4c12799e92e152d74.jpg",
     "static/media/join.jpg": "/react1103/static/media/join.94f2a83946726100980c.jpg",
     "static/media/pic2.jpg": "/react1103/static/media/pic2.cf0f5a2e3e6b83fb9084.jpg",
@@ -10,11 +10,11 @@
     "static/media/pic3.jpg": "/react1103/static/media/pic3.a80f48c93363a0e9443f.jpg",
     "static/media/pic5.jpg": "/react1103/static/media/pic5.7ac3f51250996a72c7ee.jpg",
     "index.html": "/react1103/index.html",
-    "main.3d78ae4f.css.map": "/react1103/static/css/main.3d78ae4f.css.map",
-    "main.e646dcf9.js.map": "/react1103/static/js/main.e646dcf9.js.map"
+    "main.3470a353.css.map": "/react1103/static/css/main.3470a353.css.map",
+    "main.38c1693d.js.map": "/react1103/static/js/main.38c1693d.js.map"
   },
   "entrypoints": [
-    "static/css/main.3d78ae4f.css",
-    "static/js/main.e646dcf9.js"
+    "static/css/main.3470a353.css",
+    "static/js/main.38c1693d.js"
   ]
 }
