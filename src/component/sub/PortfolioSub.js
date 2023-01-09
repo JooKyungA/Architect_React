@@ -4,6 +4,7 @@ import { useEffect, useState, useRef } from 'react';
 import Masonry from 'react-masonry-component';
 import { fetchFlickr } from '../../redux/flickrSlice';
 import { useSelector, useDispatch } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 function PortfolioSub() {
 	const dispatch = useDispatch();
@@ -128,8 +129,8 @@ function PortfolioSub() {
 							return (
 								<li className='item' key={el.id}>
 									<div>
-										<a
-											href='#'
+										<Link
+											tp='/portfolio'
 											onClick={() => {
 												setIndex(idx);
 												modal.current.open();
@@ -139,7 +140,7 @@ function PortfolioSub() {
 												src={`https://live.staticflickr.com/${el.server}/${el.id}_${el.secret}_m.jpg`}
 												alt={el.title}
 											/>
-										</a>
+										</Link>
 										<p>{el.title}</p>
 									</div>
 								</li>

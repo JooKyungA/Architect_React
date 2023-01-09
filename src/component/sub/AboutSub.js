@@ -9,19 +9,78 @@ import { Link } from 'react-router-dom';
 function AboutSub() {
 	const [Members, setMembers] = useState([]);
 	const [AboutSlider, setAboutSlider] = useState([]);
-	const [enableClick, setEnableClick] = useState(true);
+	// const [enableClick, setEnableClick] = useState(true);
 	const [Active, setActive] = useState(0);
-	const [Index, setIndex] = useState(0);
-
-	const ul = useRef(null);
-	const lis = useRef(null);
+	// const [Index, setIndex] = useState(0);
+	const slider = useRef(null);
 	const txt = useRef(null);
 	const txt_p = useRef(null);
 	const span = useRef(null);
 
+	// let Active = 0;
+
+	// const txtActive = () => {
+
+	// 	const panel = slider.current.children[0];
+	// 	const lis = panel.querySelectorAll('li');
+	// 	const len = lis.length;
+	// 	Active === 0 ? setActive(len - 1) : setActive(Active--);
+	// };
+
 	let sliderSpeed = 500;
 
+	const init = () => {
+		const panel = slider.current.children[0];
+		const lis = panel.querySelectorAll('li');
+		const len = lis.length;
+
+		panel.style.width = 100 * len + '%';
+		lis.forEach((el) => (el.style.width = 100 / len + '%'));
+		panel.lastElementChild !== null && panel.prepend(panel.lastElementChild);
+	};
+
+	const nextSlide = () => {
+		const panel = slider.current.children[0];
+		const lis = panel.querySelectorAll('li');
+		const len = lis.length;
+		new Anime(panel, {
+			prop: 'margin-left',
+			value: '-200%',
+			duration: sliderSpeed,
+			callback: () => {
+				panel.append(panel.firstElementChild);
+				panel.style.marginLeft = '-100%';
+			},
+		});
+		// txtActive();
+		// if (Active == len - 1) {
+		// 	setActive(0);
+		// } else {
+		// 	setActive(Active++);
+		// }
+		// console.log(Active);
+	};
+
+	const prevSlide = () => {
+		const panel = slider.current.children[0];
+		const lis = panel.querySelectorAll('li');
+		const len = lis.length;
+
+		new Anime(panel, {
+			prop: 'margin-left',
+			value: '0%',
+			duration: sliderSpeed,
+			callback: () => {
+				panel.prepend(panel.lastElementChild);
+				panel.style.marginLeft = '-100%';
+			},
+		});
+		// txtActive();
+	};
+
 	useEffect(() => {
+		// init();
+
 		axios.get(`${process.env.PUBLIC_URL}/DB/members.json`).then((json) => {
 			setMembers(json.data.members);
 		});
@@ -32,66 +91,8 @@ function AboutSub() {
 	}, []);
 
 	useEffect(() => {
-		if (ul.current == null) return;
-
-		const init = () => {
-			ul.current.style.left = '-100%';
-			ul.current.prepend(ul.current.lastElementChild);
-			ul.current.style.width = `${100 * len}%`;
-			const lis = ul.current.children;
-			lis.forEach((el) => {
-				el.style.width = `${100 / len}%`;
-			});
-			init();
-		};
-	}, [ul.current]);
-
-	const len = lis.length;
-
-	const clickNext = () => {
-		if (!enableClick) return;
-		setEnableClick(false);
-		nextslide();
-	};
-	const clickPrev = (e) => {
-		if (!enableClick) return;
-		setEnableClick(false);
-		prevslide();
-	};
-
-	const nextslide = () => {
-		new Anime(ul.current, {
-			prop: 'left',
-			value: '-200%',
-			duration: sliderSpeed,
-			callback: () => {
-				ul.current.style.left = '-100%';
-				ul.current.append(ul.current.firstElementChild);
-				setEnableClick(true);
-			},
-		});
-		if (Active == 0) {
-			setActive(len - 1);
-		} else {
-			setActive(Active--);
-		}
-		// const txt_p = txt.current.children;
-		for (let el of txt_p) el.classList.remove('on');
-		txt_p[Active].classList.add('on');
-	};
-
-	const prevslide = () => {
-		new Anime(ul.current, {
-			prop: 'left',
-			value: '0%',
-			duration: sliderSpeed,
-			callback: () => {
-				ul.current.style.left = '-100%';
-				ul.current.prepend(ul.current.lastElementChild);
-				setEnableClick(true);
-			},
-		});
-	};
+		init();
+	}, [AboutSlider]);
 
 	return (
 		<Layout name={'AboutSub'}>
@@ -102,46 +103,61 @@ function AboutSub() {
 			</p>
 			<div className='content'>
 				<h2>Who We Are</h2>
-
-				{/* slider - pic */}
 				<article>
 					<div className='wrap'>
-						<div className='slider'>
-							<ul ref={ul}>
+						<div id='slider' ref={slider}>
+							<ul className='panel'>
 								{AboutSlider.map((data, idx) => {
 									return (
-										<li data-index={idx} ref={lis} key={data.title}>
-											{/* article */}
+										<li key={data.title}>
 											<img src={`${process.env.PUBLIC_URL}/img/about/${data.pic}`} alt={data.alt} />
 										</li>
 									);
 								})}
+								{/* <li>
+									<img src={`${process.env.PUBLIC_URL}/img/about/about1.jpg`} alt='' />
+								</li>
+								<li>
+									<img src={`${process.env.PUBLIC_URL}/img/about/about2.jpg`} alt='' />
+								</li>
+								<li>
+									<img src={`${process.env.PUBLIC_URL}/img/about/about3.jpg`} alt='' />
+								</li>
+								<li>
+									<img src={`${process.env.PUBLIC_URL}/img/about/about4.jpg`} alt='' />
+								</li> */}
 							</ul>
+
+							<Link
+								to='/about'
+								className='prev'
+								onClick={() => {
+									prevSlide();
+									// txtActive();
+								}}
+							>
+								<img
+									src={`${process.env.PUBLIC_URL}/img/btnPrev.png`}
+									alt='이전 슬라이더로 이동 가능한 왼쪽 방향 화살표'
+								/>
+							</Link>
+							<Link to='/about' className='next' onClick={nextSlide}>
+								<img
+									src={`${process.env.PUBLIC_URL}/img/btnNext.png`}
+									alt='다음 슬라이더로 이동 가능한 오른쪽 방향 화살표'
+								/>
+							</Link>
 						</div>
-					</div>
-					{/* slider - btn */}
-					<Link to='/about' className='prev' onClick={(e) => clickPrev()}>
-						<img
-							src={`${process.env.PUBLIC_URL}/img/btnPrev.png`}
-							alt='이전 슬라이더로 이동 가능한 왼쪽 방향 화살표'
-						/>
-					</Link>
-					<Link to='/about' className='next' onClick={(e) => clickNext()}>
-						<img
-							src={`${process.env.PUBLIC_URL}/img/btnNext.png`}
-							alt='다음 슬라이더로 이동 가능한 오른쪽 방향 화살표'
-						/>
-					</Link>
-					{/* slider - txt */}
-					<div className='txt' ref={txt}>
-						{AboutSlider.map((data, idx) => {
-							return (
-								<p key={data.title} ref={txt_p}>
-									<span ref={span}>{`0${idx + 1}`}</span>
-									{data.text}
-								</p>
-							);
-						})}{' '}
+						<div className='txt' ref={txt}>
+							{AboutSlider.map((data, idx) => {
+								return (
+									<p className={Active === idx ? 'on' : ''} key={data.title} ref={txt_p}>
+										<span ref={span}>{`0${idx + 1}`}</span>
+										{data.text}
+									</p>
+								);
+							})}
+						</div>
 					</div>
 				</article>
 			</div>

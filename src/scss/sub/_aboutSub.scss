@@ -37,7 +37,9 @@
 					float: right;
 					margin-bottom: 30px;
 					position: relative;
-					.slider {
+					display: flex;
+					flex-wrap: wrap;
+					#slider {
 						width: 100%;
 						height: 100%;
 						position: relative;
@@ -48,6 +50,7 @@
 							position: absolute;
 							top: 0;
 							left: 0;
+							margin-left: -100%;
 							li {
 								width: calc(100% / 4);
 								height: 100%;
@@ -63,59 +66,58 @@
 								}
 							}
 						}
-					}
-					.prev {
-						display: block;
-						width: 40px;
-						height: 40px;
-						position: absolute;
-						top: 50%;
-						left: 20px;
-						margin-top: -20px;
-						img {
-							width: 100%;
-							height: 100%;
-							object-fit: cover;
-						}
-					}
-					.next {
-						display: block;
-						width: 40px;
-						height: 40px;
-						position: absolute;
-						top: 50%;
-						right: 20px;
-						margin-top: -20px;
-						img {
-							width: 100%;
-							height: 100%;
-							object-fit: cover;
-						}
-					}
-				}
-				.txt {
-					width: 870px;
-					float: right;
-					position: relative;
-					p {
-						font-size: 19px;
-						line-height: 1.3;
-						color: #9a9a9a;
-						position: absolute;
-						top: 0;
-						left: 0;
-						opacity: 0;
-						transition: 0.5s;
-						span {
+						.prev {
 							display: block;
-							font-size: 40px;
-							font-family: 'Yeseva One';
-							font-style: italic;
-							color: #d2d2d2;
-							margin-bottom: 10px;
+							width: 40px;
+							height: 40px;
+							position: absolute;
+							top: 50%;
+							left: 20px;
+							margin-top: -20px;
+							img {
+								width: 100%;
+								height: 100%;
+								object-fit: cover;
+							}
 						}
-						&.on {
-							opacity: 1;
+						.next {
+							display: block;
+							width: 40px;
+							height: 40px;
+							position: absolute;
+							top: 50%;
+							right: 20px;
+							margin-top: -20px;
+							img {
+								width: 100%;
+								height: 100%;
+								object-fit: cover;
+							}
+						}
+					}
+					.txt {
+						width: 870px;
+						position: relative;
+						p {
+							font-size: 19px;
+							line-height: 1.3;
+							color: #9a9a9a;
+							position: absolute;
+							top: 0;
+							left: 0;
+							opacity: 0;
+							transition: 0.5s;
+							span {
+								display: block;
+								font-size: 40px;
+								font-family: 'Yeseva One';
+								font-style: italic;
+								color: #d2d2d2;
+								margin-bottom: 10px;
+							}
+							&.on {
+								opacity: 1;
+							}
 						}
 					}
 				}
@@ -227,9 +229,9 @@
 						width: 100%;
 						display: flex;
 						justify-content: center;
-					}
-					.txt {
-						width: 100%;
+						.txt {
+							width: 100%;
+						}
 					}
 				}
 			}
@@ -262,9 +264,11 @@
 				height: 860px;
 				padding-right: 0px;
 				article {
-					.txt {
-						p {
-							font-size: 18px;
+					.wrap {
+						.txt {
+							p {
+								font-size: 18px;
+							}
 						}
 					}
 				}

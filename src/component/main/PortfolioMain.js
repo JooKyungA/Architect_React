@@ -12,14 +12,17 @@ function PortfolioMain() {
 	const modal = useRef(null);
 	const [Data, setData] = useState([]);
 	const [Index, setIndex] = useState(0);
+	const [ActiveNum, setActiveNum] = useState(0);
 	const pics = useSelector((store) => store.flickr.data);
 
-	useEffect(async () => {
+	const getImgs = async () => {
 		const result = await axios.get(`${process.env.PUBLIC_URL}/DB/mainPortfolio.json`);
 		setData(result.data.mainPortfolio);
 
 		photosetIndex(0);
-	}, []);
+	};
+
+	useEffect(getImgs, []);
 
 	const linkPrevent = (e) => {
 		e.preventDefault();
@@ -37,6 +40,7 @@ function PortfolioMain() {
 			fetchFlickr({ type: 'photosets', user: '197141079@N07', photoset: photoset_ids[idx] })
 		);
 	};
+
 	return (
 		<>
 			<section id='portfolioMain' className='scrollView'>
@@ -77,6 +81,7 @@ function PortfolioMain() {
 											key={pic.id}
 											onClick={() => {
 												modal.current.open();
+												setActiveNum(idx);
 											}}
 										>
 											<img
@@ -95,8 +100,8 @@ function PortfolioMain() {
 			</section>
 			<Modal ref={modal}>
 				<img
-					src={`https://live.staticflickr.com/${pics[Index]?.server}/${pics[Index]?.id}_${pics[Index]?.secret}_b.jpg`}
-					alt={pics[Index]?.title}
+					src={`https://live.staticflickr.com/${pics[ActiveNum]?.server}/${pics[ActiveNum]?.id}_${pics[ActiveNum]?.secret}_b.jpg`}
+					alt={pics[ActiveNum]?.title}
 				/>
 			</Modal>
 		</>
