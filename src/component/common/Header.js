@@ -1,9 +1,14 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebookF, faInstagram, faTwitter } from '@fortawesome/free-brands-svg-icons';
-
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 function Header(props) {
+	const [IsOn, setIsOn] = useState('');
+	const btnCallClick = (e) => {
+		e.preventDefault();
+		IsOn == '' ? setIsOn('on') : setIsOn('');
+	};
 	return (
 		<header className={`${props.type} scrollView`} id='header'>
 			<div className='inner'>
@@ -50,7 +55,14 @@ function Header(props) {
 						</li>
 					</ul>
 				</nav>
-				<Link to='#' className='btnCall' onClick={() => props.menuOpen.current.toggle()}>
+				<Link
+					to='#'
+					className={`btnCall ${IsOn}`}
+					onClick={(e) => {
+						btnCallClick(e);
+						props.menuOpen.current.toggle();
+					}}
+				>
 					<span>메뉴호출</span>
 				</Link>
 			</div>

@@ -12,12 +12,15 @@ function Visual() {
 	const aside = useRef(null);
 	const viewSpeed = 500;
 	const [IsOff, setIsOff] = useState('');
+
 	const openBox = (e) => {
 		e.preventDefault();
 		aside.current.style.display = 'block';
 
-		setIsOff('off');
 		const [_top, _right, _bottom, _left, _box] = aside.current.children;
+
+		setIsOff('off');
+
 		new Anime(_top, {
 			prop: 'width',
 			value: '100%',
