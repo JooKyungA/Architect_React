@@ -52,13 +52,12 @@ function AboutSub() {
 				panel.style.marginLeft = '-100%';
 			},
 		});
-		// txtActive();
-		// if (Active == len - 1) {
-		// 	setActive(0);
-		// } else {
-		// 	setActive(Active++);
-		// }
-		// console.log(Active);
+
+		if (Active == len - 1) {
+			setActive(0);
+		} else {
+			setActive(Active + 1);
+		}
 	};
 
 	const prevSlide = () => {
@@ -75,12 +74,15 @@ function AboutSub() {
 				panel.style.marginLeft = '-100%';
 			},
 		});
-		// txtActive();
+
+		if (Active == 0) {
+			setActive(len - 1);
+		} else {
+			setActive(Active - 1);
+		}
 	};
 
 	useEffect(() => {
-		// init();
-
 		axios.get(`${process.env.PUBLIC_URL}/DB/members.json`).then((json) => {
 			setMembers(json.data.members);
 		});
@@ -114,18 +116,6 @@ function AboutSub() {
 										</li>
 									);
 								})}
-								{/* <li>
-									<img src={`${process.env.PUBLIC_URL}/img/about/about1.jpg`} alt='' />
-								</li>
-								<li>
-									<img src={`${process.env.PUBLIC_URL}/img/about/about2.jpg`} alt='' />
-								</li>
-								<li>
-									<img src={`${process.env.PUBLIC_URL}/img/about/about3.jpg`} alt='' />
-								</li>
-								<li>
-									<img src={`${process.env.PUBLIC_URL}/img/about/about4.jpg`} alt='' />
-								</li> */}
 							</ul>
 
 							<Link
@@ -133,7 +123,6 @@ function AboutSub() {
 								className='prev'
 								onClick={() => {
 									prevSlide();
-									// txtActive();
 								}}
 							>
 								<img
@@ -141,7 +130,13 @@ function AboutSub() {
 									alt='이전 슬라이더로 이동 가능한 왼쪽 방향 화살표'
 								/>
 							</Link>
-							<Link to='/about' className='next' onClick={nextSlide}>
+							<Link
+								to='/about'
+								className='next'
+								onClick={() => {
+									nextSlide();
+								}}
+							>
 								<img
 									src={`${process.env.PUBLIC_URL}/img/btnNext.png`}
 									alt='다음 슬라이더로 이동 가능한 오른쪽 방향 화살표'
