@@ -26,7 +26,7 @@
 			transform: rotateY(180deg);
 			opacity: 0;
 			transition: 1s 0.5s;
-			.award_tab {
+			.acordianMenu {
 				width: 700px;
 				height: 100%;
 				position: relative;
@@ -34,48 +34,45 @@
 				padding: 10px 10px 10px;
 				border-top: 1px solid #333;
 				overflow: hidden;
-				&:hover label::after {
+				&:hover .txt::after {
 					color: rgb(203, 119, 10);
 					font-size: 35px;
 				}
-				input[type='radio'] {
-					appearance: none;
-					position: absolute;
-					&:checked + label::after {
-						transform: rotate(135deg);
-						opacity: 0;
+				&.on {
+					.txt {
+						margin: 0px 0px 5px;
+						&::after {
+							transform: rotate(135deg);
+							opacity: 0;
+						}
+						h2 {
+							width: 100%;
+							height: 100%;
+							position: absolute;
+							top: 30px;
+							left: 0px;
+							color: rgba(255, 255, 255, 0.366);
+							justify-content: flex-end;
+							font-size: 70px;
+							padding: 10px;
+							transition: 0.5s;
+						}
+						h3 {
+							padding: 0px 15px;
+							font-weight: 500;
+							color: rgb(203, 119, 10);
+							border-radius: 2px;
+						}
 					}
-					&:checked ~ .content {
+					.content {
 						max-height: 150px;
 						padding: 0px 15px;
-
 						p {
 							color: #9a9a9a;
 						}
 					}
-					&:checked ~ label {
-						margin: 0px 0px 5px;
-					}
-					&:checked ~ label h2 {
-						width: 100%;
-						height: 100%;
-						position: absolute;
-						top: 30px;
-						left: 0px;
-						color: rgba(255, 255, 255, 0.366);
-						justify-content: flex-end;
-						font-size: 70px;
-						padding: 10px;
-						transition: 0.5s;
-					}
-					&:checked ~ label h3 {
-						padding: 0px 15px;
-						font-weight: 500;
-						color: rgb(203, 119, 10);
-						border-radius: 2px;
-					}
 				}
-				label {
+				.txt {
 					display: flex;
 					align-items: center;
 					cursor: pointer;
@@ -202,14 +199,16 @@
 			.wrap {
 				margin-top: 6vh;
 				width: 80%;
-				.award_tab {
+				.acordianMenu {
 					width: 100%;
-					input[type='radio'] {
-						&:checked ~ label h2 {
-							display: none;
+					&.on {
+						.txt {
+							h2 {
+								display: none;
+							}
 						}
 					}
-					label {
+					.txt {
 						h2 {
 							margin-right: 20px;
 						}
@@ -230,17 +229,19 @@
 			height: 750px;
 			.wrap {
 				width: 100%;
-				.award_tab {
+				.acordianMenu {
 					padding: 10px 0px 10px;
-					input[type='radio'] {
-						&:checked ~ .content {
+					&.on {
+						.txt {
+							h2 {
+								display: none;
+							}
+						}
+						.content {
 							max-height: 200px;
 						}
-						&:checked ~ label h2 {
-							display: none;
-						}
 					}
-					label {
+					.txt {
 						h2 {
 							font-size: 16px;
 						}

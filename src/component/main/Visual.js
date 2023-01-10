@@ -10,13 +10,11 @@ import pic5 from '../../img/slider/pic5.jpg';
 function Visual() {
 	const imgs = [pic1, pic2, pic3, pic4, pic5];
 	const slider = useRef(null);
-	// const panel = useRef(null);
-	// const prev = useRef(null);
-	// const next = useRef(null);
 	const visualRef = useRef(null);
 	const aside = useRef(null);
 	const [IsOff, setIsOff] = useState('');
-	const [IsOn, setIsOn] = useState('');
+	const [PrevOn, setPrevOn] = useState('');
+	const [NextOn, setNextOn] = useState('');
 	const viewSpeed = 500;
 
 	const openBox = (e) => {
@@ -110,6 +108,10 @@ function Visual() {
 				panel.style.marginLeft = '-100%';
 			},
 		});
+		setNextOn('on');
+		setTimeout(() => {
+			setNextOn('');
+		}, 500);
 	};
 
 	const prevSlide = () => {
@@ -124,44 +126,11 @@ function Visual() {
 				panel.style.marginLeft = '-100%';
 			},
 		});
+		setPrevOn('on');
+		setTimeout(() => {
+			setPrevOn('');
+		}, 500);
 	};
-
-	// const init = () => {
-	// 	panel.prepend(panel.lastElementChild);
-	// 	panel.prepend(panel.lastElementChild);
-
-	// 	const boxs = panel.querySelectorAll('li');
-	// 	boxs[0].classList.add('on');
-	// };
-
-	// const nextSlide = () => {
-	// 	const panel = slider.current.children[0];
-
-	// 	setIsOn('on');
-	// 	setTimeout(() => next.classList.remove('on'), 500);
-	// 	panel.append(panel.firstElementChild);
-	// 	activationSlide();
-	// };
-
-	// const prevSlide = () => {
-	// 	const panel = slider.current.children[0];
-
-	// 	setIsOn('on');
-
-	// 	setTimeout(() => prev.classList.remove('on'), 500);
-	// 	panel.prepend(panel.lastElementChild);
-	// 	activationSlide();
-	// };
-
-	// const activationSlide = () => {
-	// 	setTimeout(() => {
-	// 		const panel = slider.current.children[0];
-	// 		const boxs = panel.querySelectorAll('li');
-	// 		for (const el of boxs) el.classList.remove('on');
-
-	// 		boxs[2].classList.add('on');
-	// 	}, 500);
-	// };
 
 	useEffect(() => {
 		init();
@@ -184,7 +153,7 @@ function Visual() {
 					<img src={`${process.env.PUBLIC_URL}/img/main.jpg`} alt='' />
 				</div>
 				<article className='slider' ref={slider}>
-					<ul className='panel'>
+					<ul>
 						{imgs.map((pic, idx) => {
 							return (
 								<li key={imgs[idx]}>
@@ -195,10 +164,10 @@ function Visual() {
 					</ul>
 				</article>
 				<div className='sliderBtn'>
-					<p className={`prev ${IsOn}`} onClick={prevSlide}>
+					<p className={`prev ${PrevOn}`} onClick={prevSlide}>
 						<span></span>
 					</p>
-					<p className={`next ${IsOn}`} onClick={nextSlide}>
+					<p className={`next ${NextOn}`} onClick={nextSlide}>
 						<span></span>
 					</p>
 				</div>

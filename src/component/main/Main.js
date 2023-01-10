@@ -4,8 +4,8 @@ import AboutMain from './AboutMain';
 import PortfolioMain from './PortfolioMain';
 import Awards from './Awards';
 import YoutubeMain from './YoutubeMain';
-import Scroll from './Scroll';
 import NoticeMain from './NoticeMain';
+import Scroll from './Scroll';
 
 function Main({ menuOpen }) {
 	return (

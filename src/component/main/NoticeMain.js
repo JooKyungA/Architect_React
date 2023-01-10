@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
 
-function NoticeMain({ Scrolled, currentPos }) {
+function NoticeMain() {
 	const getLocalData = () => {
 		const dummyPosts = [
 			{
@@ -48,12 +48,6 @@ function NoticeMain({ Scrolled, currentPos }) {
 	};
 
 	const data = useRef(getLocalData());
-
-	const base = -window.innerHeight / 3;
-
-	let scroll = Scrolled - base - currentPos || 0;
-
-	scroll < 0 && (scroll = 0);
 
 	useEffect(() => {
 		localStorage.setItem('post', JSON.stringify(data.current));

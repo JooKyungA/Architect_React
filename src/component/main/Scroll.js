@@ -7,7 +7,7 @@ function Scroll() {
 	const num = useRef(6);
 	const scrollSpeed = useRef(500);
 	const btnRef = useRef(null);
-	const btnName = ['HOME', 'ABOUT', 'PORTFOLIO', 'AWARDS', 'BLOG', 'NEWS'];
+	const btnName = ['HOME', 'ABOUT', 'PORTFOLIO', 'AWARDS', 'YOUTUBE', 'NOTICE'];
 
 	const getPos = () => {
 		posArr.current = [];
@@ -20,7 +20,7 @@ function Scroll() {
 		const btns = btnRef.current.children;
 		const secs = btnRef.current.parentElement.querySelectorAll('.scrollView');
 		const scroll = window.scrollY || window.pageYOffset;
-		const base = -window.innerHeight / 2;
+		const base = -window.innerHeight / 3;
 
 		posArr.current.forEach((posArr, idx) => {
 			if (scroll >= posArr + base) {
@@ -41,7 +41,7 @@ function Scroll() {
 			window.removeEventListener('resize', getPos);
 			window.removeEventListener('scroll', scrollActive);
 		};
-	}, [getPos]);
+	}, [getPos, scrollActive]);
 
 	return (
 		<ul className='btnScroll' ref={btnRef}>
