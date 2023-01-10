@@ -12,6 +12,7 @@ function Awards() {
 		}
 		e.currentTarget.classList.add('on');
 	};
+
 	useEffect(async () => {
 		const result = await axios.get(`${process.env.PUBLIC_URL}/DB/awards.json`);
 		setAwardsList(result.data.awards);
@@ -24,7 +25,7 @@ function Awards() {
 				<div className='wrap' ref={acordian}>
 					{AwardList.map((data, idx) => {
 						return (
-							<div
+							<article
 								className='acordianMenu'
 								key={data.award}
 								onClick={(e) => {
@@ -39,7 +40,7 @@ function Awards() {
 									<img src={`${process.env.PUBLIC_URL}/img/award/${data.pic}`} alt={data.alt} />
 									<p>{data.txt}</p>
 								</div>
-							</div>
+							</article>
 						);
 					})}
 				</div>
