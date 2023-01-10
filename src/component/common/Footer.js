@@ -1,6 +1,5 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebookF, faInstagram, faTwitter } from '@fortawesome/free-brands-svg-icons';
-
 import { Link } from 'react-router-dom';
 
 function Footer() {
@@ -9,20 +8,55 @@ function Footer() {
 			<div className='inner'>
 				<div className='footer_txt'>
 					<h1>
-						<Link to='/'>DCL ARCHITECTS</Link>
+						<Link
+							to='#'
+							onClick={(e) => {
+								e.preventDefault(e);
+							}}
+						>
+							DCL ARCHITECTS
+						</Link>
 					</h1>
 					<ul>
 						<li>
-							<Link to='/'>Policy</Link>
+							<Link
+								to='#'
+								onClick={(e) => {
+									e.preventDefault(e);
+								}}
+							>
+								Policy
+							</Link>
 						</li>
 						<li>
-							<Link to='/'>Terms</Link>
+							<Link
+								to='#'
+								onClick={(e) => {
+									e.preventDefault(e);
+								}}
+							>
+								Terms
+							</Link>
 						</li>
 						<li>
-							<Link to='/'>Customer</Link>
+							<Link
+								to='#'
+								onClick={(e) => {
+									e.preventDefault(e);
+								}}
+							>
+								Customer
+							</Link>
 						</li>
 						<li>
-							<Link to='/'>Blog</Link>
+							<Link
+								to='#'
+								onClick={(e) => {
+									e.preventDefault(e);
+								}}
+							>
+								Blog
+							</Link>
 						</li>
 					</ul>
 				</div>
@@ -36,17 +70,32 @@ function Footer() {
 					<p>Yes, we are social!</p>
 					<ul>
 						<li>
-							<Link to='/'>
+							<Link
+								to='#'
+								onClick={(e) => {
+									e.preventDefault(e);
+								}}
+							>
 								<FontAwesomeIcon icon={faFacebookF} />
 							</Link>
 						</li>
 						<li>
-							<Link to='/'>
+							<Link
+								to='#'
+								onClick={(e) => {
+									e.preventDefault(e);
+								}}
+							>
 								<FontAwesomeIcon icon={faInstagram} />
 							</Link>
 						</li>
 						<li>
-							<Link to='/'>
+							<Link
+								to='#'
+								onClick={(e) => {
+									e.preventDefault(e);
+								}}
+							>
 								<FontAwesomeIcon icon={faTwitter} />
 							</Link>
 						</li>
@@ -58,7 +107,13 @@ function Footer() {
 					<div>
 						<label className='hidden' htmlFor='subscribe'></label>
 						<input type='email' name='subscribe' id='subscribe' placeholder='E-mail' />
-						<Link to='/' className='subscribeBtn'>
+						<Link
+							to='#'
+							className='subscribeBtn'
+							onClick={(e) => {
+								e.preventDefault(e);
+							}}
+						>
 							GO
 						</Link>
 					</div>

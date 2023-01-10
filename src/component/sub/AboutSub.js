@@ -41,7 +41,7 @@ function AboutSub() {
 			},
 		});
 
-		if (Active == len - 1) {
+		if (Active === len - 1) {
 			setActive(0);
 		} else {
 			setActive(Active + 1);
@@ -63,7 +63,7 @@ function AboutSub() {
 			},
 		});
 
-		if (Active == 0) {
+		if (Active === 0) {
 			setActive(len - 1);
 		} else {
 			setActive(Active - 1);
@@ -73,6 +73,7 @@ function AboutSub() {
 	useEffect(() => {
 		axios.get(`${process.env.PUBLIC_URL}/DB/members.json`).then((json) => {
 			setMembers(json.data.members);
+			window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
 		});
 
 		axios.get(`${process.env.PUBLIC_URL}/DB/aboutSlider.json`).then((json) => {
@@ -158,13 +159,28 @@ function AboutSub() {
 										alt={`${data.name}의 프로필사진`}
 									/>
 									<p>
-										<Link to='/about'>
+										<Link
+											to='#'
+											onClick={(e) => {
+												e.preventDefault(e);
+											}}
+										>
 											<FontAwesomeIcon icon={faFacebook} />
 										</Link>
-										<Link to='/about'>
+										<Link
+											to='#'
+											onClick={(e) => {
+												e.preventDefault(e);
+											}}
+										>
 											<FontAwesomeIcon icon={faInstagram} />
 										</Link>
-										<Link to='/about'>
+										<Link
+											to='#'
+											onClick={(e) => {
+												e.preventDefault(e);
+											}}
+										>
 											<FontAwesomeIcon icon={faTwitter} />
 										</Link>
 									</p>

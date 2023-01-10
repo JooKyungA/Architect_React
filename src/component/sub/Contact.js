@@ -236,7 +236,14 @@ function Contact() {
 								setIndex(idx);
 							}}
 						>
-							<Link to='/contact'>{data.title}</Link>
+							<Link
+								to='#'
+								onClick={(e) => {
+									e.preventDefault(e);
+								}}
+							>
+								{data.title}
+							</Link>
 							<div className='txt'>
 								<p>{data.tel}</p>
 								<span>{data.address}</span>

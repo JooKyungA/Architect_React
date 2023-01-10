@@ -51,19 +51,18 @@ function Scroll() {
 					let isOn = '';
 					idx === 0 && (isOn = 'on');
 					return (
-						<li
-							key={idx}
-							className={isOn}
-							onClick={() => {
-								new Anime(window, {
-									prop: 'scroll',
-									value: posArr.current[idx],
-									duration: scrollSpeed.current,
-								});
-							}}
-						>
+						<li key={idx} className={isOn}>
 							<p>{btnName[idx]}</p>
-							<Link to='/'></Link>
+							<Link
+								to='#'
+								onClick={() => {
+									new Anime(window, {
+										prop: 'scroll',
+										value: posArr.current[idx],
+										duration: scrollSpeed.current,
+									});
+								}}
+							></Link>
 						</li>
 					);
 				})}

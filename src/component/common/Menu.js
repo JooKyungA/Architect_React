@@ -55,17 +55,32 @@ const Menu = forwardRef((props, ref) => {
 
 					<ul className='snsMo'>
 						<li>
-							<Link to='/'>
+							<Link
+								to='#'
+								onClick={(e) => {
+									e.preventDefault(e);
+								}}
+							>
 								<FontAwesomeIcon icon={faFacebookF} />
 							</Link>
 						</li>
 						<li>
-							<Link to='/'>
+							<Link
+								to='#'
+								onClick={(e) => {
+									e.preventDefault(e);
+								}}
+							>
 								<FontAwesomeIcon icon={faInstagram} />
 							</Link>
 						</li>
 						<li>
-							<Link to='/'>
+							<Link
+								to='#'
+								onClick={(e) => {
+									e.preventDefault(e);
+								}}
+							>
 								<FontAwesomeIcon icon={faTwitter} />
 							</Link>
 						</li>

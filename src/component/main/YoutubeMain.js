@@ -1,5 +1,5 @@
 import { useSelector } from 'react-redux';
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
@@ -9,12 +9,17 @@ function Youtube() {
 	const modal = useRef(null);
 	const [index, setIndex] = useState(0);
 	const Items = useSelector((store) => store.youtube.data);
+
+	useEffect(() => {
+		window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+	}, [Items]);
+
 	return (
 		<>
 			<section id='youtubeMain' className='scrollView'>
 				<div className='inner'>
 					<h1>YOUTUBE</h1>
-					<Link to='/about'>
+					<Link to='/youtube'>
 						VIEW MORE <FontAwesomeIcon icon={faArrowRight} />
 					</Link>
 					<div className='wrap'>

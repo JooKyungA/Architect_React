@@ -64,9 +64,14 @@ function PortfolioMain() {
 												photosetIndex(idx);
 											}}
 										>
-											<a href='#' onClick={(e) => linkPrevent(e)}>
+											<Link
+												to='#'
+												onClick={(e) => {
+													e.preventDefault(e);
+												}}
+											>
 												{el.title}
-											</a>
+											</Link>
 										</li>
 									);
 								})}
