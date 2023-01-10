@@ -1,4 +1,5 @@
-import { useRef, useState } from 'react';
+import { useRef, useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import Anime from '../../asset/anime';
 import pic1 from '../../img/slider/pic1.jpg';
 import pic2 from '../../img/slider/pic2.jpg';
@@ -8,10 +9,15 @@ import pic5 from '../../img/slider/pic5.jpg';
 
 function Visual() {
 	const imgs = [pic1, pic2, pic3, pic4, pic5];
+	const slider = useRef(null);
+	// const panel = useRef(null);
+	// const prev = useRef(null);
+	// const next = useRef(null);
 	const visualRef = useRef(null);
 	const aside = useRef(null);
-	const viewSpeed = 500;
 	const [IsOff, setIsOff] = useState('');
+	const [IsOn, setIsOn] = useState('');
+	const viewSpeed = 500;
 
 	const openBox = (e) => {
 		e.preventDefault();
@@ -81,12 +87,92 @@ function Visual() {
 		});
 	};
 
+	let sliderSpeed = 500;
+
+	const init = () => {
+		const panel = slider.current.children[0];
+		const lis = panel.querySelectorAll('li');
+		const len = lis.length;
+
+		panel.style.width = 100 * len + '%';
+		lis.forEach((el) => (el.style.width = 100 / len + '%'));
+		panel.lastElementChild !== null && panel.prepend(panel.lastElementChild);
+	};
+
+	const nextSlide = () => {
+		const panel = slider.current.children[0];
+		new Anime(panel, {
+			prop: 'margin-left',
+			value: '-200%',
+			duration: sliderSpeed,
+			callback: () => {
+				panel.append(panel.firstElementChild);
+				panel.style.marginLeft = '-100%';
+			},
+		});
+	};
+
+	const prevSlide = () => {
+		const panel = slider.current.children[0];
+
+		new Anime(panel, {
+			prop: 'margin-left',
+			value: '0%',
+			duration: sliderSpeed,
+			callback: () => {
+				panel.prepend(panel.lastElementChild);
+				panel.style.marginLeft = '-100%';
+			},
+		});
+	};
+
+	// const init = () => {
+	// 	panel.prepend(panel.lastElementChild);
+	// 	panel.prepend(panel.lastElementChild);
+
+	// 	const boxs = panel.querySelectorAll('li');
+	// 	boxs[0].classList.add('on');
+	// };
+
+	// const nextSlide = () => {
+	// 	const panel = slider.current.children[0];
+
+	// 	setIsOn('on');
+	// 	setTimeout(() => next.classList.remove('on'), 500);
+	// 	panel.append(panel.firstElementChild);
+	// 	activationSlide();
+	// };
+
+	// const prevSlide = () => {
+	// 	const panel = slider.current.children[0];
+
+	// 	setIsOn('on');
+
+	// 	setTimeout(() => prev.classList.remove('on'), 500);
+	// 	panel.prepend(panel.lastElementChild);
+	// 	activationSlide();
+	// };
+
+	// const activationSlide = () => {
+	// 	setTimeout(() => {
+	// 		const panel = slider.current.children[0];
+	// 		const boxs = panel.querySelectorAll('li');
+	// 		for (const el of boxs) el.classList.remove('on');
+
+	// 		boxs[2].classList.add('on');
+	// 	}, 500);
+	// };
+
+	useEffect(() => {
+		init();
+	}, []);
+
 	return (
 		<figure id='visual' className={IsOff} ref={visualRef}>
 			<div className='inner'>
-				<a href='#' className='btnViewOpen' onClick={openBox}>
+				<Link to='#' className='btnViewOpen' onClick={openBox}>
 					VIEW CONTENT
-				</a>
+				</Link>
 				<div className='txt'>
 					<h1>DCL ARCH.</h1>
 					<p>
@@ -97,8 +183,8 @@ function Visual() {
 				<div className='pic'>
 					<img src={`${process.env.PUBLIC_URL}/img/main.jpg`} alt='' />
 				</div>
-				<article className='slider'>
-					<ul>
+				<article className='slider' ref={slider}>
+					<ul className='panel'>
 						{imgs.map((pic, idx) => {
 							return (
 								<li key={imgs[idx]}>
@@ -109,13 +195,13 @@ function Visual() {
 					</ul>
 				</article>
 				<div className='sliderBtn'>
-					<p className='prev'>
+					<p className={`prev ${IsOn}`} onClick={prevSlide}>
 						<span></span>
 					</p>
-					<p className='next'>
+					<p className={`next ${IsOn}`} onClick={nextSlide}>
 						<span></span>
 					</p>
-				</div>{' '}
+				</div>
 				<aside id='aside' ref={aside}>
 					<div className='top'></div>
 					<div className='right'></div>
@@ -133,13 +219,13 @@ function Visual() {
 								Est quia minima aut quos numquam dolor repellendus expedita dignissimos, optio
 								excepturi fugiat eum rerum quasi perferendis neque, placeat nam delectus deserunt.
 							</p>
-							<a href='#' className='btnViewClose'>
+							<Link to='#' className='btnViewClose'>
 								<img
 									src={`${process.env.PUBLIC_URL}/img/close.png`}
 									alt='view content를 닫는 기능을 하는 X 버튼'
 									onClick={closeBox}
 								/>
-							</a>
+							</Link>
 						</div>
 					</div>
 				</aside>

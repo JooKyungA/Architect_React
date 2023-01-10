@@ -9,23 +9,11 @@ import { Link } from 'react-router-dom';
 function AboutSub() {
 	const [Members, setMembers] = useState([]);
 	const [AboutSlider, setAboutSlider] = useState([]);
-	// const [enableClick, setEnableClick] = useState(true);
 	const [Active, setActive] = useState(0);
-	// const [Index, setIndex] = useState(0);
 	const slider = useRef(null);
 	const txt = useRef(null);
 	const txt_p = useRef(null);
 	const span = useRef(null);
-
-	// let Active = 0;
-
-	// const txtActive = () => {
-
-	// 	const panel = slider.current.children[0];
-	// 	const lis = panel.querySelectorAll('li');
-	// 	const len = lis.length;
-	// 	Active === 0 ? setActive(len - 1) : setActive(Active--);
-	// };
 
 	let sliderSpeed = 500;
 
