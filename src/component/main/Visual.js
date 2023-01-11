@@ -15,8 +15,11 @@ function Visual() {
 	const [IsOff, setIsOff] = useState('');
 	const [PrevOn, setPrevOn] = useState('');
 	const [NextOn, setNextOn] = useState('');
+	const [enableClick, setEnableClick] = useState(true);
 	const viewSpeed = 500;
+	const sliderSpeed = 500;
 
+	// view content open
 	const openBox = (e) => {
 		e.preventDefault();
 		aside.current.style.display = 'block';
@@ -59,7 +62,7 @@ function Visual() {
 			},
 		});
 	};
-
+	// view content close
 	const closeBox = (e) => {
 		e.preventDefault();
 		const [_top, _right, _bottom, _left, _box] = aside.current.children;
@@ -85,51 +88,51 @@ function Visual() {
 		});
 	};
 
-	let sliderSpeed = 500;
-
+	// slider
 	const init = () => {
 		const panel = slider.current.children[0];
+		panel.prepend(panel.lastElementChild);
+		panel.prepend(panel.lastElementChild);
 		const lis = panel.querySelectorAll('li');
-		const len = lis.length;
-
-		panel.style.width = 100 * len + '%';
-		lis.forEach((el) => (el.style.width = 100 / len + '%'));
-		panel.lastElementChild !== null && panel.prepend(panel.lastElementChild);
+		lis[2].classList.add('on');
+		// html에서는 인덱스 0번인데 왜 여긴 2번으로 해야 똑같이 되는지?
+		console.log(lis[0]);
 	};
 
 	const nextSlide = () => {
-		const panel = slider.current.children[0];
-		new Anime(panel, {
-			prop: 'margin-left',
-			value: '-200%',
-			duration: sliderSpeed,
-			callback: () => {
-				panel.append(panel.firstElementChild);
-				panel.style.marginLeft = '-100%';
-			},
-		});
+		if (!enableClick) return;
+		setEnableClick(false);
 		setNextOn('on');
+		const panel = slider.current.children[0];
+		panel.append(panel.firstElementChild);
+
+		activationSlide();
+
 		setTimeout(() => {
 			setNextOn('');
 		}, 500);
 	};
 
 	const prevSlide = () => {
-		const panel = slider.current.children[0];
-
-		new Anime(panel, {
-			prop: 'margin-left',
-			value: '0%',
-			duration: sliderSpeed,
-			callback: () => {
-				panel.prepend(panel.lastElementChild);
-				panel.style.marginLeft = '-100%';
-			},
-		});
+		if (!enableClick) return;
+		setEnableClick(false);
 		setPrevOn('on');
+		const panel = slider.current.children[0];
+		panel.prepend(panel.lastElementChild);
+
+		activationSlide();
+
 		setTimeout(() => {
 			setPrevOn('');
 		}, 500);
+	};
+
+	const activationSlide = () => {
+		const panel = slider.current.children[0];
+		const lis = panel.querySelectorAll('li');
+		for (const el of lis) el.classList.remove('on');
+		lis[2].classList.add('on');
+		setEnableClick(true);
 	};
 
 	useEffect(() => {
@@ -156,7 +159,7 @@ function Visual() {
 					<ul>
 						{imgs.map((pic, idx) => {
 							return (
-								<li key={imgs[idx]}>
+								<li className={idx} key={imgs[idx]}>
 									<img src={pic} alt={pic} />
 								</li>
 							);

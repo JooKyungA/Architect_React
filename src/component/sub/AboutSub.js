@@ -10,12 +10,12 @@ function AboutSub() {
 	const [Members, setMembers] = useState([]);
 	const [AboutSlider, setAboutSlider] = useState([]);
 	const [Active, setActive] = useState(0);
+	const [enableClick, setEnableClick] = useState(true);
 	const slider = useRef(null);
 	const txt = useRef(null);
 	const txt_p = useRef(null);
 	const span = useRef(null);
-
-	let sliderSpeed = 500;
+	const sliderSpeed = 500;
 
 	const init = () => {
 		const panel = slider.current.children[0];
@@ -28,6 +28,8 @@ function AboutSub() {
 	};
 
 	const nextSlide = () => {
+		if (!enableClick) return;
+		setEnableClick(false);
 		const panel = slider.current.children[0];
 		const lis = panel.querySelectorAll('li');
 		const len = lis.length;
@@ -40,15 +42,19 @@ function AboutSub() {
 				panel.style.marginLeft = '-100%';
 			},
 		});
-
 		if (Active === len - 1) {
 			setActive(0);
 		} else {
 			setActive(Active + 1);
 		}
+		setTimeout(() => {
+			setEnableClick(true);
+		}, 500);
 	};
 
 	const prevSlide = () => {
+		if (!enableClick) return;
+		setEnableClick(false);
 		const panel = slider.current.children[0];
 		const lis = panel.querySelectorAll('li');
 		const len = lis.length;
@@ -62,12 +68,14 @@ function AboutSub() {
 				panel.style.marginLeft = '-100%';
 			},
 		});
-
 		if (Active === 0) {
 			setActive(len - 1);
 		} else {
 			setActive(Active - 1);
 		}
+		setTimeout(() => {
+			setEnableClick(true);
+		}, 500);
 	};
 
 	useEffect(() => {
