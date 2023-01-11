@@ -1,31 +1,30 @@
-import { useState, forwardRef, useImperativeHandle, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebookF, faInstagram, faTwitter } from '@fortawesome/free-brands-svg-icons';
+import { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { close } from '../../redux/menuSlice';
 
-const Menu = forwardRef((props, ref) => {
-	const [Open, setOpen] = useState(false);
-
-	useImperativeHandle(ref, () => {
-		return { toggle: () => setOpen(!Open) };
-	});
+const Menu = () => {
+	const dispatch = useDispatch();
+	const menu = useSelector((store) => store.menu.open);
 
 	useEffect(() => {
 		window.addEventListener('resize', () => {
-			if (window.innerWidth >= 1200) setOpen(false);
+			if (window.innerWidth >= 1180) dispatch(close());
 		});
-	}, []);
+	}, [dispatch]);
 
 	return (
 		<AnimatePresence>
-			{Open && (
+			{menu && (
 				<motion.nav
 					className='menuMo'
 					initial={{ opacity: 0, x: -320 }}
 					animate={{ opacity: 1, x: 0, transition: { duration: 0.5 } }}
 					exit={{ opacity: 0, x: -320, transition: { duration: 0.5 } }}
-					onClick={() => setOpen(false)}
+					onClick={() => dispatch(close())}
 				>
 					<h1>
 						<Link to='/'>DCL ARCHITECTS</Link>
@@ -89,6 +88,6 @@ const Menu = forwardRef((props, ref) => {
 			)}
 		</AnimatePresence>
 	);
-});
+};
 
 export default Menu;

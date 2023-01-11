@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
 import Modal from '../common/Modal';
 
-function Youtube() {
+function YoutubeMain() {
 	const modal = useRef(null);
 	const [index, setIndex] = useState(0);
 	const Items = useSelector((store) => store.youtube.data);
@@ -60,4 +60,4 @@ function Youtube() {
 	);
 }
 
-export default Youtube;
+export default YoutubeMain;

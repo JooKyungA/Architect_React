@@ -1,4 +1,3 @@
-// keyframe circle 작성하기
 #awards {
 	.inner {
 		width: 1180px;
@@ -125,38 +124,6 @@
 				}
 			}
 		}
-		.circle {
-			width: 300px;
-			height: 300px;
-			position: absolute;
-			top: 20vh;
-			left: 3vw;
-			transform: translateY(50%);
-			opacity: 0;
-			transition: 1s 0.5s;
-			p {
-				position: absolute;
-				top: 50%;
-				left: 50%;
-				animation: circle 40s linear infinite;
-				animation-play-state: running;
-				span {
-					display: inline-block;
-					position: absolute;
-					top: 50%;
-					left: 50%;
-					font-size: 20px;
-					color: rgb(110, 109, 109);
-					margin-top: -10px;
-					margin-left: -10px;
-				}
-			}
-			&:hover {
-				p {
-					animation-play-state: paused;
-				}
-			}
-		}
 	}
 	&.on {
 		.inner {
@@ -166,10 +133,6 @@
 			}
 			.wrap {
 				transform: rotateY(0deg);
-				opacity: 1;
-			}
-			.circle {
-				transform: translateY(0%);
 				opacity: 1;
 			}
 		}
@@ -183,9 +146,6 @@
 			width: 100%;
 			height: 690px;
 			padding: 5vw 5vw 5vw;
-			.wrap {
-				margin-top: 4vh;
-			}
 		}
 	}
 }
@@ -194,11 +154,9 @@
 @media screen and (max-width: $middle) {
 	#awards {
 		.inner {
-			width: 100%;
-			height: 100%;
 			.wrap {
-				margin-top: 4vh;
 				width: 80%;
+				margin-top: 20px;
 				.acordianMenu {
 					width: 100%;
 					&.on {
@@ -226,7 +184,6 @@
 @media screen and (max-width: $mobile) {
 	#awards {
 		.inner {
-			height: 750px;
 			.wrap {
 				width: 100%;
 				.acordianMenu {
@@ -260,14 +217,5 @@
 				}
 			}
 		}
-	}
-}
-
-@keyframes circle {
-	0% {
-		transform: rotate(0deg);
-	}
-	100% {
-		transform: rotate(360deg);
 	}
 }

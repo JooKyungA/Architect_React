@@ -8,14 +8,7 @@ function Footer() {
 			<div className='inner'>
 				<div className='footer_txt'>
 					<h1>
-						<Link
-							to='#'
-							onClick={(e) => {
-								e.preventDefault(e);
-							}}
-						>
-							DCL ARCHITECTS
-						</Link>
+						<Link to='/'>DCL ARCHITECTS</Link>
 					</h1>
 					<ul>
 						<li>

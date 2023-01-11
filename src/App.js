@@ -1,5 +1,4 @@
 import { Route, Switch } from 'react-router-dom';
-import { useRef } from 'react';
 
 // common
 import Header from './component/common/Header';
@@ -10,11 +9,11 @@ import Menu from './component/common/Menu';
 import Main from './component/main/Main';
 
 // sub
-import About from './component/sub/AboutSub';
-import Portfolio from './component/sub/PortfolioSub';
-import Youtube from './component/sub/YoutubeSub';
+import AboutSub from './component/sub/AboutSub';
+import PortfolioSub from './component/sub/PortfolioSub';
+import YoutubeSub from './component/sub/YoutubeSub';
 import Contact from './component/sub/Contact';
-import Notice from './component/sub/NoticeSub';
+import NoticeSub from './component/sub/NoticeSub';
 import Join from './component/sub/Join';
 import JoinResult from './component/sub/JoinResult';
 import ContactResult from './component/sub/ContactResult';
@@ -29,8 +28,6 @@ import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 
 function App() {
-	const menuOpen = useRef(null);
-
 	const dispatch = useDispatch();
 
 	const user_id = '197141079@N07';
@@ -44,22 +41,22 @@ function App() {
 	return (
 		<>
 			<Switch>
-				<Route exact path='/' render={() => <Main menuOpen={menuOpen} />} />
-				<Route path='/' render={() => <Header type={'sub'} menuOpen={menuOpen} />} />
+				<Route exact path='/' render={() => <Main />} />
+				<Route path='/' render={() => <Header type={'sub'} />} />
 			</Switch>
 
-			<Route path='/about' component={About} />
-			<Route path='/portfolio' component={Portfolio} />
-			<Route path='/youtube' component={Youtube} />
+			<Route path='/about' component={AboutSub} />
+			<Route path='/portfolio' component={PortfolioSub} />
+			<Route path='/youtube' component={YoutubeSub} />
 			<Route path='/contact' component={Contact} />
-			<Route path='/notice' component={Notice} />
+			<Route path='/notice' component={NoticeSub} />
 			<Route path='/join' component={Join} />
 			<Route path='/joinResult' component={JoinResult} />
 			<Route path='/contactResult' component={ContactResult} />
 
 			<Footer />
 
-			<Menu ref={menuOpen} />
+			<Menu />
 		</>
 	);
 }

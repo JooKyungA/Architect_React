@@ -131,7 +131,7 @@ function PortfolioSub() {
 								<li className='item' key={el.id}>
 									<div>
 										<Link
-											tp='/portfolio'
+											to='/portfolio'
 											onClick={() => {
 												setIndex(idx);
 												modal.current.open();

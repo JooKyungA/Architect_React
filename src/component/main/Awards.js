@@ -6,8 +6,8 @@ function Awards() {
 	const acordian = useRef(null);
 
 	const activeMenu = (e) => {
-		const article = acordian.current.querySelectorAll('.acordianMenu');
-		for (let i of article) {
+		const articles = acordian.current.querySelectorAll('.acordianMenu');
+		for (let i of articles) {
 			i.classList.remove('on');
 		}
 		e.currentTarget.classList.add('on');
