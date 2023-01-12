@@ -1,15 +1,16 @@
+import { Link } from 'react-router-dom';
+import { useEffect, useState, useRef } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { fetchFlickr } from '../../redux/flickrSlice';
+import Masonry from 'react-masonry-component';
 import Layout from '../common/Layout';
 import Modal from '../common/Modal';
-import { useEffect, useState, useRef } from 'react';
-import Masonry from 'react-masonry-component';
-import { fetchFlickr } from '../../redux/flickrSlice';
-import { useSelector, useDispatch } from 'react-redux';
-import { Link } from 'react-router-dom';
 
 function PortfolioSub() {
 	const dispatch = useDispatch();
-	const modal = useRef(null);
 	const masonryOptions = { transitionDuration: '0.5s' };
+	const path = process.env.PUBLIC_URL;
+	const modal = useRef(null);
 	const frame = useRef(null);
 	const input = useRef(null);
 	const btns = useRef(null);
@@ -83,7 +84,14 @@ function PortfolioSub() {
 					</button>
 				</section>
 				<div className='btns' ref={btns}>
-					<button onClick={showUser}>ALL</button>
+					<button
+						onClick={(e) => {
+							isOn(e);
+							showUser();
+						}}
+					>
+						ALL
+					</button>
 					<button
 						onClick={(e) => {
 							isOn(e);
@@ -119,7 +127,7 @@ function PortfolioSub() {
 				</div>
 				{Loading && (
 					<img
-						src={`${process.env.PUBLIC_URL}/img/loading.gif`}
+						src={`${path}/img/loading.gif`}
 						alt='이미지 전체를 불러오는 동안 사용자가 로딩중임을 알 수 있도록 화면에 나타낼 로딩 이미지'
 						className='loading'
 					/>

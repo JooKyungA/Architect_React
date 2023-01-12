@@ -1,10 +1,11 @@
+import { useEffect, useState, useRef } from 'react';
+import { Link } from 'react-router-dom';
+import axios from 'axios';
 import Layout from '../common/Layout';
 import Anime from '../../asset/anime';
-import axios from 'axios';
-import { useEffect, useState, useRef } from 'react';
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebook, faInstagram, faTwitter } from '@fortawesome/free-brands-svg-icons';
-import { Link } from 'react-router-dom';
 
 function AboutSub() {
 	const [Members, setMembers] = useState([]);
@@ -16,6 +17,7 @@ function AboutSub() {
 	const txt_p = useRef(null);
 	const span = useRef(null);
 	const sliderSpeed = 500;
+	const path = process.env.PUBLIC_URL;
 
 	const init = () => {
 		const panel = slider.current.children[0];
@@ -79,12 +81,12 @@ function AboutSub() {
 	};
 
 	useEffect(() => {
-		axios.get(`${process.env.PUBLIC_URL}/DB/members.json`).then((json) => {
+		axios.get(`${path}/DB/members.json`).then((json) => {
 			setMembers(json.data.members);
 			window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
 		});
 
-		axios.get(`${process.env.PUBLIC_URL}/DB/aboutSlider.json`).then((json) => {
+		axios.get(`${path}/DB/aboutSlider.json`).then((json) => {
 			setAboutSlider(json.data.aboutSlider);
 		});
 	}, []);
@@ -109,7 +111,7 @@ function AboutSub() {
 								{AboutSlider.map((data, idx) => {
 									return (
 										<li key={data.title}>
-											<img src={`${process.env.PUBLIC_URL}/img/about/${data.pic}`} alt={data.alt} />
+											<img src={`${path}/img/about/${data.pic}`} alt={data.alt} />
 										</li>
 									);
 								})}
@@ -123,7 +125,7 @@ function AboutSub() {
 								}}
 							>
 								<img
-									src={`${process.env.PUBLIC_URL}/img/btnPrev.png`}
+									src={`${path}/img/btnPrev.png`}
 									alt='이전 슬라이더로 이동 가능한 왼쪽 방향 화살표'
 								/>
 							</Link>
@@ -135,7 +137,7 @@ function AboutSub() {
 								}}
 							>
 								<img
-									src={`${process.env.PUBLIC_URL}/img/btnNext.png`}
+									src={`${path}/img/btnNext.png`}
 									alt='다음 슬라이더로 이동 가능한 오른쪽 방향 화살표'
 								/>
 							</Link>
@@ -162,10 +164,7 @@ function AboutSub() {
 						return (
 							<article key={data.name}>
 								<div className='pic'>
-									<img
-										src={`${process.env.PUBLIC_URL}/img/member/${data.pic}`}
-										alt={`${data.name}의 프로필사진`}
-									/>
+									<img src={`${path}/img/member/${data.pic}`} alt={`${data.name}의 프로필사진`} />
 									<p>
 										<Link
 											to='#'

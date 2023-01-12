@@ -20,7 +20,7 @@ function Scroll() {
 		const btns = btnRef.current.children;
 		const secs = btnRef.current.parentElement.querySelectorAll('.scrollView');
 		const scroll = window.scrollY || window.pageYOffset;
-		const base = -window.innerHeight / 3;
+		const base = -window.innerHeight / 2;
 
 		posArr.current.forEach((posArr, idx) => {
 			if (scroll >= posArr + base) {

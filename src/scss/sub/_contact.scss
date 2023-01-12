@@ -6,7 +6,7 @@
 			display: block;
 			clear: both;
 		}
-		.txt {
+		.info {
 			width: 580px;
 			float: left;
 			> div {
@@ -177,7 +177,7 @@
 @media screen and (max-width: $tablet) {
 	.Contact {
 		.inner {
-			.txt {
+			.info {
 				width: 100%;
 				div {
 					width: 49%;
@@ -225,7 +225,7 @@
 @media screen and (max-width: $mobile) {
 	.Contact {
 		.inner {
-			.txt {
+			.info {
 				> div {
 					height: 300px;
 				}

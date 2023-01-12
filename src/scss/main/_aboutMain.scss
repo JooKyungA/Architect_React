@@ -15,7 +15,7 @@
 			margin-bottom: 35px;
 			transform: translateY(-50%);
 			opacity: 0;
-			transition: 1s;
+			transition: 0.5s;
 			a {
 				transition: 0.5s;
 				&:hover {
@@ -30,7 +30,7 @@
 			color: rgb(203, 119, 10);
 			transform: translateX(100%);
 			opacity: 0;
-			transition: transform 1s 1.2s, opacity 1s 1.2s, color 0.5s;
+			transition: transform 0.5s 0.7s, opacity 0.5s 0.7s, color 0.5s;
 			svg {
 				path {
 					color: rgb(203, 119, 10);
@@ -68,20 +68,20 @@
 						position: absolute;
 						top: 0;
 						left: -100%;
-						transition: 0.8s 0.5s;
+						transition: 0.3s 0.1s;
 					}
 					span {
 						color: #9a9a9a;
 						opacity: 0;
-						transition: 0.3s 0.8s;
+						transition: 0.3s 0.3s;
 					}
 				}
 				p:nth-of-type(2) {
 					&::before {
-						transition-delay: 1s;
+						transition-delay: 0.5s;
 					}
 					span {
-						transition-delay: 1.3s;
+						transition-delay: 0.7s;
 					}
 				}
 			}
@@ -92,7 +92,7 @@
 				color: rgb(110, 109, 109);
 				transform: translateX(20%);
 				opacity: 0;
-				transition: 1s 1.2s;
+				transition: 0.5s 0.7s;
 			}
 		}
 	}

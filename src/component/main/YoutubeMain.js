@@ -1,6 +1,6 @@
-import { useSelector } from 'react-redux';
 import { useState, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
 import Modal from '../common/Modal';

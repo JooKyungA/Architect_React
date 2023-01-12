@@ -1,11 +1,11 @@
+import { useEffect, useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+import { fetchFlickr } from '../../redux/flickrSlice';
+import Modal from '../common/Modal';
+import axios from 'axios';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
-import axios from 'axios';
-import { fetchFlickr } from '../../redux/flickrSlice';
-import { useEffect, useState, useRef } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import Modal from '../common/Modal';
 
 function PortfolioMain() {
 	const dispatch = useDispatch();
@@ -23,10 +23,6 @@ function PortfolioMain() {
 	};
 
 	useEffect(getImgs, []);
-
-	const linkPrevent = (e) => {
-		e.preventDefault();
-	};
 
 	const photoset_ids = [
 		'72177720305070823',

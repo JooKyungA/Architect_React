@@ -1,11 +1,12 @@
+import { useEffect, useState, useRef } from 'react';
+import { useHistory, Link } from 'react-router-dom';
 import axios from 'axios';
 import Layout from '../common/Layout';
-import { useEffect, useState, useRef } from 'react';
-import { useHistory } from 'react-router-dom';
-import { Link } from 'react-router-dom';
 
 function Contact() {
-	// txt
+	const path = process.env.PUBLIC_URL;
+
+	// info
 	const [ContactUs, setContactUs] = useState([]);
 
 	// contact_form
@@ -80,7 +81,7 @@ function Contact() {
 		{
 			title: '본점',
 			latlng: new kakao.maps.LatLng(37.4261458, 126.648286),
-			imgSrc: `${process.env.PUBLIC_URL}/img/placeholder.png`,
+			imgSrc: `${path}/img/placeholder.png`,
 			imgSize: new kakao.maps.Size(64, 64),
 			imgPos: { offset: new kakao.maps.Point(32, 64) },
 			tel: 'Tel. 032-1234-5678',
@@ -89,7 +90,7 @@ function Contact() {
 		{
 			title: '안양지점',
 			latlng: new kakao.maps.LatLng(37.3851989, 126.9510398),
-			imgSrc: `${process.env.PUBLIC_URL}/img/placeholder.png`,
+			imgSrc: `${path}/img/placeholder.png`,
 			imgSize: new kakao.maps.Size(64, 64),
 			imgPos: { offset: new kakao.maps.Point(32, 66) },
 			tel: 'Tel. 031-1212-3344',
@@ -98,7 +99,7 @@ function Contact() {
 		{
 			title: '서울지점',
 			latlng: new kakao.maps.LatLng(37.4706014, 126.9369485),
-			imgSrc: `${process.env.PUBLIC_URL}/img/placeholder.png`,
+			imgSrc: `${path}/img/placeholder.png`,
 			imgSize: new kakao.maps.Size(64, 64),
 			imgPos: { offset: new kakao.maps.Point(32, 64) },
 			tel: 'Tel. 02-3456-7890',
@@ -123,7 +124,7 @@ function Contact() {
 	});
 
 	useEffect(() => {
-		axios.get(`${process.env.PUBLIC_URL}/DB/contactInfo.json`).then((json) => {
+		axios.get(`${path}/DB/contactInfo.json`).then((json) => {
 			setContactUs(json.data.contactInfo);
 		});
 	}, []);
@@ -152,12 +153,12 @@ function Contact() {
 				blanditiis deleniti pariatur maxime voluptatum earum, ab animi cupiditate.
 			</p>
 
-			{/* txt */}
-			<div className='txt'>
+			{/* info */}
+			<div className='info'>
 				{ContactUs.map((data) => {
 					return (
 						<div key={data.contactMethod}>
-							<img src={`${process.env.PUBLIC_URL}/img/${data.pic}`} alt={data.contactMethod} />
+							<img src={`${path}/img/${data.pic}`} alt={data.contactMethod} />
 							<p>{data.contactMethod}</p>
 							<span>{data.contactDetail}</span>
 						</div>

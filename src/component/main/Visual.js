@@ -9,6 +9,7 @@ import pic5 from '../../img/slider/pic5.jpg';
 
 function Visual() {
 	const imgs = [pic1, pic2, pic3, pic4, pic5];
+	const path = process.env.PUBLIC_URL;
 	const slider = useRef(null);
 	const visualRef = useRef(null);
 	const aside = useRef(null);
@@ -95,8 +96,6 @@ function Visual() {
 		panel.prepend(panel.lastElementChild);
 		const lis = panel.querySelectorAll('li');
 		lis[2].classList.add('on');
-		// html에서는 인덱스 0번인데 왜 여긴 2번으로 해야 똑같이 되는지?
-		console.log(lis[0]);
 	};
 
 	const nextSlide = () => {
@@ -110,7 +109,7 @@ function Visual() {
 
 		setTimeout(() => {
 			setNextOn('');
-		}, 500);
+		}, sliderSpeed);
 	};
 
 	const prevSlide = () => {
@@ -124,7 +123,7 @@ function Visual() {
 
 		setTimeout(() => {
 			setPrevOn('');
-		}, 500);
+		}, sliderSpeed);
 	};
 
 	const activationSlide = () => {
@@ -153,7 +152,7 @@ function Visual() {
 					</p>
 				</div>
 				<div className='pic'>
-					<img src={`${process.env.PUBLIC_URL}/img/main.jpg`} alt='' />
+					<img src={`${path}/img/main.jpg`} alt='' />
 				</div>
 				<article className='slider' ref={slider}>
 					<ul>
@@ -182,7 +181,7 @@ function Visual() {
 					<div className='box'>
 						<img
 							className='asidePic'
-							src={`${process.env.PUBLIC_URL}/img/aside.jpg`}
+							src={`${path}/img/aside.jpg`}
 							alt='액자가 걸려있는 침실 인테리어 사진'
 						/>
 						<div className='content'>
@@ -193,7 +192,7 @@ function Visual() {
 							</p>
 							<Link to='#' className='btnViewClose'>
 								<img
-									src={`${process.env.PUBLIC_URL}/img/close.png`}
+									src={`${path}/img/close.png`}
 									alt='view content를 닫는 기능을 하는 X 버튼'
 									onClick={closeBox}
 								/>

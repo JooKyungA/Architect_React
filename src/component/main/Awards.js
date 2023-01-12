@@ -1,9 +1,10 @@
-import axios from 'axios';
 import { useState, useEffect, useRef } from 'react';
+import axios from 'axios';
 
 function Awards() {
 	const [AwardList, setAwardsList] = useState([]);
 	const acordian = useRef(null);
+	const path = process.env.PUBLIC_URL;
 
 	const activeMenu = (e) => {
 		const articles = acordian.current.querySelectorAll('.acordianMenu');
@@ -23,7 +24,7 @@ function Awards() {
 			<div className='inner'>
 				<h1>AWARDS</h1>
 				<div className='wrap' ref={acordian}>
-					{AwardList.map((data, idx) => {
+					{AwardList.map((data, _) => {
 						return (
 							<article
 								className='acordianMenu'
@@ -37,7 +38,7 @@ function Awards() {
 									<h3>{data.award}</h3>
 								</div>
 								<div className='content'>
-									<img src={`${process.env.PUBLIC_URL}/img/award/${data.pic}`} alt={data.alt} />
+									<img src={`${path}/img/award/${data.pic}`} alt={data.alt} />
 									<p>{data.txt}</p>
 								</div>
 							</article>

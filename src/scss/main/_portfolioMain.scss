@@ -19,7 +19,7 @@
 			margin-bottom: 30px;
 			transform: translateY(-50%);
 			opacity: 0;
-			transition: 1s;
+			transition: 0.5s;
 			a {
 				transition: 0.5s;
 				&:hover {
@@ -34,7 +34,7 @@
 			color: rgb(203, 119, 10);
 			transform: translateX(100%);
 			opacity: 0;
-			transition: transform 1s 0.5s, opacity 1s 0.5s, color 0.5s;
+			transition: transform 0.5s 0.2s, opacity 0.5s 0.2s, color 0.5s;
 			svg {
 				path {
 					color: rgb(203, 119, 10);
@@ -56,7 +56,7 @@
 			overflow: hidden;
 			transform: translateY(50%);
 			opacity: 0;
-			transition: 1s 0.5s;
+			transition: 0.5s 0.2s;
 			&::after {
 				content: '';
 				display: block;

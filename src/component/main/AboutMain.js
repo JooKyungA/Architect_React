@@ -14,20 +14,20 @@ function AboutMain() {
 					<h2>
 						<p>
 							<span> We respect what our customers think consider</span>
-						</p>{' '}
+						</p>
 						<br />
 						<p>
 							<span> design, economy, and construction quality.</span>
 						</p>
 					</h2>
 					<p>
-						Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tempore recusandae veritatis
-						molestias facere sint, numquam quos. Ea illo earum id sed cumque in. Quis laboriosam
-						odio mollitia voluptas perferendis veritatis vel molestiae, dignissimos recusandae,
-						placeat quibusdam similique excepturi autem amet reprehenderit id eos provident eligendi
-						esse in quidem tempore. Perspiciatis. Lorem ipsum dolor sit amet consectetur adipisicing
-						elit. Asperiores iste, omnis possimus assumenda sunt aspernatur architecto consequatur
-						accusantium? Ipsam, reprehenderit!
+						Lorem ipsum, dolor sit amet consectetur adi pisicing elit. Tempore recusandae veritatis
+						molestias facere sint, numquam quos. Ea illo earum id sed cumque in. Quis labor iosam
+						odio mollitia voluptas perfer endis veritatis vel mole stiae, dignis simos re cusandae,
+						placeat qui busdam similique excepturi autem amet repre henderit id eos provident eli
+						gendi esse in quidem tempore. Pers piciatis. Lorem ipsum dolor sit amet consectetur
+						adipisicing elit. As periores iste, omnis possimus assum enda sunt asper natur archi
+						tecto cons equatur accus antium? Ipsam, reprehenderit!
 					</p>
 				</div>
 			</div>

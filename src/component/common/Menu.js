@@ -1,9 +1,9 @@
 import { motion, AnimatePresence } from 'framer-motion';
+import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebookF, faInstagram, faTwitter } from '@fortawesome/free-brands-svg-icons';
-import { useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
 import { close } from '../../redux/menuSlice';
 
 const Menu = () => {

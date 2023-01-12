@@ -17,14 +17,14 @@
 			margin-bottom: 30px;
 			transform: translateY(-50%);
 			opacity: 0;
-			transition: 1s;
+			transition: 0.5s;
 		}
 		.wrap {
 			float: right;
 			width: 700px;
 			transform: rotateY(180deg);
 			opacity: 0;
-			transition: 1s 0.5s;
+			transition: 0.5s 0.2s;
 			.acordianMenu {
 				width: 700px;
 				height: 100%;
