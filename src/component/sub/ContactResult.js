@@ -8,8 +8,9 @@ function ContactResult() {
 		<Layout name={'ContactResult'}>
 			<h1>CONTACT</h1>
 			<p>
-				Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus asperiores, delectus
-				illo quidem quae, dolor ea exercitationem soluta, consequuntur sed iure error fuga.
+				Feel free to contact us if you have any questions! If you send the three messages below, the
+				person in charge will check and contact you as soon as possible. Telephone calls and
+				face-to-face visits are also welcome.
 			</p>
 			<div className='wrap'>
 				<div className='pic'></div>

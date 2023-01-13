@@ -4,7 +4,7 @@
 		width: 1180px;
 		margin: 0 auto;
 		padding: 30px 0px 70px;
-		border-top: 2px solid rgb(110, 109, 109);
+		border-top: 2px solid #6e6d6d80;
 		overflow: hidden;
 		position: relative;
 
@@ -23,7 +23,7 @@
 			a {
 				transition: 0.5s;
 				&:hover {
-					color: rgb(203, 119, 10);
+					color: #cb770a;
 				}
 			}
 		}
@@ -31,21 +31,21 @@
 			display: block;
 			float: right;
 			margin-top: -70px;
-			color: rgb(203, 119, 10);
+			color: #cb770a;
 			transform: translateX(100%);
 			opacity: 0;
 			transition: transform 0.5s 0.2s, opacity 0.5s 0.2s, color 0.5s;
 			svg {
 				path {
-					color: rgb(203, 119, 10);
+					color: #cb770a;
 					transition: 0.5s;
 				}
 			}
 			&:hover {
-				color: rgb(249, 173, 110);
+				color: #eb7206;
 				svg {
 					path {
-						color: rgb(249, 173, 110);
+						color: #eb7206;
 					}
 				}
 			}
@@ -94,16 +94,16 @@
 								transition: 0.5s;
 							}
 							&:hover {
-								color: rgba(203, 119, 10, 0.7);
+								color: #cb770ab3;
 								&::after {
 									width: 100%;
+									color: #cb770ab3;
 								}
 							}
 						}
-
 						&.on {
 							a {
-								color: rgb(203, 119, 10);
+								color: #cb770a;
 							}
 						}
 					}

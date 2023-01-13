@@ -1,7 +1,7 @@
 import Layout from '../common/Layout';
 import { useState, useEffect, useRef } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPenToSquare, faTrashCan } from '@fortawesome/free-solid-svg-icons';
+import { faPenToSquare, faTrashCan, faCheck, faTimes } from '@fortawesome/free-solid-svg-icons';
 
 function NoticeSub() {
 	const getLocalData = () => {
@@ -118,8 +118,12 @@ function NoticeSub() {
 									</div>
 
 									<div className='btnSet'>
-										<button onClick={() => disableUpdate(idx)}>CANCEL</button>
-										<button onClick={() => updatePost(idx)}>UPDATED</button>
+										<button onClick={() => updatePost(idx)}>
+											<FontAwesomeIcon icon={faCheck} />
+										</button>
+										<button onClick={() => disableUpdate(idx)}>
+											<FontAwesomeIcon icon={faTimes} />
+										</button>
 									</div>
 								</>
 							) : (

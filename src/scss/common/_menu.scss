@@ -11,7 +11,7 @@
 	transition: 0.5s;
 	h1 {
 		padding-bottom: 30px;
-		border-bottom: 1px solid rgb(172, 166, 166);
+		border-bottom: 1px solid #9a9a9a;
 		a {
 			display: block;
 			font-size: 24px;
@@ -23,7 +23,7 @@
 		}
 		p {
 			font-size: 12px;
-			color: #464646;
+			color: #0b090980;
 		}
 	}
 	#gnbMo {
@@ -33,9 +33,9 @@
 				display: block;
 				width: 100%;
 				padding: 20px 0;
-				border-bottom: 1px solid rgb(172, 166, 166);
+				border-bottom: 1px solid #9a9a9a;
 				font-size: 14px;
-				color: #636262;
+				color: #6e6d6d;
 			}
 		}
 	}
@@ -50,11 +50,11 @@
 					font-size: 13px;
 					path {
 						transition: 0.5s;
-						color: #636262;
+						color: #6e6d6d;
 					}
 					&:hover {
 						path {
-							color: rgb(203, 119, 10);
+							color: #cb770a;
 						}
 					}
 				}

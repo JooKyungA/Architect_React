@@ -4,7 +4,7 @@
 		height: 650px;
 		margin: 0 auto;
 		padding: 30px 0px 30px;
-		border-top: 2px solid rgb(110, 109, 109);
+		border-top: 2px solid #6e6d6d80;
 		position: relative;
 		&::after {
 			content: '';
@@ -31,10 +31,10 @@
 				position: relative;
 				margin: 0px;
 				padding: 10px 10px 10px;
-				border-top: 1px solid #333;
+				border-top: 1px solid #6e6d6d;
 				overflow: hidden;
 				&:hover .txt::after {
-					color: rgb(203, 119, 10);
+					color: #cb770a;
 					font-size: 35px;
 				}
 				&.on {
@@ -50,7 +50,7 @@
 							position: absolute;
 							top: 30px;
 							left: 0px;
-							color: rgba(255, 255, 255, 0.366);
+							color: #6e6d6db3;
 							justify-content: flex-end;
 							font-size: 70px;
 							padding: 10px;
@@ -59,7 +59,7 @@
 						h3 {
 							padding: 0px 15px;
 							font-weight: 500;
-							color: rgb(203, 119, 10);
+							color: #cb770a;
 							border-radius: 2px;
 						}
 					}
@@ -81,7 +81,7 @@
 						right: 20px;
 						font-size: 32px;
 						transition: all 1s;
-						color: rgb(110, 109, 109);
+						color: #6e6d6d;
 					}
 					h2 {
 						width: 60px;
@@ -118,7 +118,7 @@
 						width: 400px;
 						position: relative;
 						padding: 10px 0;
-						color: #ccc;
+						color: #9a9a9a;
 						z-index: 10;
 					}
 				}

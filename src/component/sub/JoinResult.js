@@ -8,8 +8,8 @@ function JoinResult() {
 		<Layout name={'JoinResult'}>
 			<h1>JOIN</h1>
 			<p>
-				Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus asperiores, delectus
-				illo quidem quae, dolor ea exercitationem soluta, consequuntur sed iure error fuga.
+				If you sign up for our site, you can see more news and events! There are special benefits
+				only for members, so try signing up now.
 			</p>
 			<div className='wrap'>
 				<div className='pic'></div>

@@ -13,8 +13,9 @@ function YoutubeSub() {
 			<Layout name={'YoutubeSub'}>
 				<h1>YOUTUBE</h1>
 				<p>
-					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem, id asperiores quas mollitia
-					dignissimos itaque minima dolorem ullam architecto ea. Nulla, neque voluptates.
+					You can see our modern architecture and sensuous spatial interiors on YouTube. With the
+					architect's explanation, you can see the direction we are pursuing by looking around the
+					entire building and the interior.
 				</p>
 				<div className='vidList'>
 					{Items.map((data, idx) => {

@@ -4,7 +4,7 @@
 		height: 200px;
 		margin: 0 auto;
 		padding: 30px 0px 0px;
-		border-top: 2px solid rgb(110, 109, 109);
+		border-top: 2px solid #6e6d6d80;
 		display: flex;
 		flex-wrap: wrap;
 		justify-content: space-between;
@@ -36,7 +36,7 @@
 					a {
 						transition: 0.5s;
 						&:hover {
-							color: rgb(203, 119, 10);
+							color: #cb770a;
 						}
 					}
 				}
@@ -47,7 +47,7 @@
 							color: #9a9a9a;
 							transition: 0.5s;
 							&:hover {
-								color: rgb(203, 119, 10);
+								color: #cb770a;
 							}
 						}
 					}
@@ -73,12 +73,12 @@
 							justify-content: left;
 							svg {
 								path {
-									color: #ccc;
+									color: #9a9a9a;
 									transition: 0.5s;
 								}
 								&:hover {
 									path {
-										color: rgb(203, 119, 10);
+										color: #cb770a;
 									}
 								}
 							}
@@ -96,10 +96,10 @@
 						width: 73%;
 						height: 25px;
 						padding-left: 10px;
-						background-color: rgb(110, 109, 109);
+						background-color: #6e6d6d80;
 						border: none;
 						&::placeholder {
-							color: #aaa;
+							color: #9a9a9a;
 						}
 						&:focus {
 							outline: none;
@@ -113,10 +113,10 @@
 						font-size: 12px;
 						line-height: 25px;
 						text-align: center;
-						background: linear-gradient(45deg, rgb(203, 119, 10), rgb(252, 114, 8));
+						background-color: #cb770a;
 						cursor: pointer;
 						&:hover {
-							background: linear-gradient(45deg, rgb(250, 158, 59), rgb(249, 157, 36));
+							background-color: #eb7206;
 						}
 					}
 				}
@@ -126,7 +126,7 @@
 		> p {
 			width: 100%;
 			font-size: 13px;
-			color: rgb(110, 109, 109);
+			color: #6e6d6d;
 			text-align: center;
 			letter-spacing: 1.1px;
 			padding: 15px 0px 30px;

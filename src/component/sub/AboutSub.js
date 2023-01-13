@@ -99,8 +99,9 @@ function AboutSub() {
 		<Layout name={'AboutSub'}>
 			<h1>ABOUT</h1>
 			<p>
-				Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut aliquid, incidunt molestias modi
-				quaerat soluta nesciunt iusto laboriosam. Minima facilis mollitia, quo tempora illo tenetur!
+				We respect what our customers think consider design, economy, and construction quality. We
+				value the value of various relationships in everyday space experience, and through this, we
+				aim to build together.
 			</p>
 			<div className='content'>
 				<h2>Who We Are</h2>
