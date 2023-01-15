@@ -82,8 +82,9 @@ function NoticeSub() {
 		<Layout name={'NoticeSub'}>
 			<h1>NOTICE</h1>
 			<p>
-				Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vitae, facere labore reiciendis
-				blanditiis deleniti pariatur maxime voluptatum earum, ab animi cupiditate.
+				We have successfully completed the project in pursuit of modern and sensuous architecture
+				and space design. You can check the details of our company's activities through news of
+				signing contracts with various institutions and interviews on completed projects.
 			</p>
 			<div className='inputBox'>
 				<input type='text' placeholder='제목을 입력하세요' ref={input} />

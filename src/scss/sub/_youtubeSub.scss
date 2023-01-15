@@ -35,17 +35,20 @@
 					height: 40%;
 					padding: 20px;
 					h2 {
-						font: bold 20px/1.2 'arial';
+						font-size: 20px;
+						font-weight: bold;
+						line-height: 1.2;
 						color: #cb770a;
 						margin-bottom: 15px;
 					}
 					p {
-						font: 14px/1.4 'arial';
+						font-size: 14px;
+						line-height: 1.4;
 						color: #a9a9a9;
 						margin-bottom: 20px;
 					}
 					span {
-						font: 16px/1 'arial';
+						font-size: 16px;
 						color: #6e6d6d;
 					}
 				}

@@ -51,20 +51,19 @@
 			padding: 50px;
 			background-color: #060909;
 			article {
-				box-shadow: 3px 3px 5px rgba(255, 255, 255, 0.163);
+				box-shadow: 3px 3px 5px rgba(255, 255, 255, 0.099);
 				padding: 30px;
 				margin-bottom: 40px;
 				display: flex;
 				justify-content: space-between;
 				align-content: center;
 				flex-wrap: wrap;
-				// background-color: #6e6d6d80;
-				background-color: #242424;
+				border: 1px solid #6e6d6d60;
 				.txt {
 					width: calc(100% - 170px);
 					h2 {
 						margin-bottom: 10px;
-						color: #efefef;
+						color: #cb770a;
 					}
 					p {
 						color: #9a9a9a;
@@ -74,7 +73,7 @@
 						width: 100%;
 						padding: 8px 10px;
 						margin-bottom: 20px;
-						background: #efefef;
+						background: #efefefe5;
 						color: #060909;
 						border: none;
 						resize: none;
@@ -98,11 +97,10 @@
 						margin: 10px;
 						border: none;
 						cursor: pointer;
-						color: #cb770a;
 						svg {
 							font-size: 18px;
 							path {
-								color: #cb770a;
+								color: #efefefe5;
 							}
 						}
 					}

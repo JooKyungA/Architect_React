@@ -8,10 +8,15 @@ function Awards() {
 
 	const activeMenu = (e) => {
 		const articles = acordian.current.querySelectorAll('.acordianMenu');
-		for (let i of articles) {
-			i.classList.remove('on');
+		let isOn = e.currentTarget.classList.contains('on');
+		if (isOn) {
+			e.currentTarget.classList.remove('on');
+		} else {
+			for (let i of articles) {
+				i.classList.remove('on');
+			}
+			e.currentTarget.classList.add('on');
 		}
-		e.currentTarget.classList.add('on');
 	};
 
 	useEffect(async () => {
