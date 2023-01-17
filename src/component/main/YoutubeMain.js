@@ -38,7 +38,7 @@ function YoutubeMain() {
 										}}
 									>
 										<img
-											key={idx}
+											key={data.id}
 											src={data.snippet.thumbnails.high.url}
 											alt={data.snippet.title}
 										/>

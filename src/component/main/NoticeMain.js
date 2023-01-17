@@ -64,7 +64,7 @@ function NoticeMain() {
 					{data.current.map((data, idx) => {
 						if (idx >= 3) return null;
 						return (
-							<article key={idx}>
+							<article key={data.title}>
 								<h5>{data.title}</h5>
 								<p>{data.content}</p>
 							</article>

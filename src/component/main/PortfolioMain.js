@@ -86,7 +86,7 @@ function PortfolioMain() {
 											}}
 										>
 											<img
-												key={idx}
+												key={pic.id}
 												src={`https://live.staticflickr.com/${pic.server}/${pic.id}_${pic.secret}_z.jpg`}
 												alt={pic.title}
 											/>

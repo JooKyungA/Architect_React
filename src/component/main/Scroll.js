@@ -51,7 +51,7 @@ function Scroll() {
 					let isOn = '';
 					idx === 0 && (isOn = 'on');
 					return (
-						<li key={idx} className={isOn}>
+						<li key={btnName[idx]} className={isOn}>
 							<p>{btnName[idx]}</p>
 							<Link
 								to='#'

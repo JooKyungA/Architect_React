@@ -100,7 +100,7 @@ function NoticeSub() {
 			<div className='showBox'>
 				{Posts.map((post, idx) => {
 					return (
-						<article key={idx}>
+						<article key={post.title}>
 							{post.enableUpdate ? (
 								//수정모드
 								<>
