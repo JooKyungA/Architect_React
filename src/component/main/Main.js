@@ -7,10 +7,10 @@ import YoutubeMain from './YoutubeMain';
 import NoticeMain from './NoticeMain';
 import Scroll from './Scroll';
 
-function Main({ menuOpen }) {
+function Main() {
 	return (
 		<main>
-			<Header type={'main'} menuOpen={menuOpen} />
+			<Header type={'main'} />
 			<Visual />
 			<AboutMain />
 			<PortfolioMain />

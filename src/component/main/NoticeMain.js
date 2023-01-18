@@ -7,34 +7,34 @@ function NoticeMain() {
 	const getLocalData = () => {
 		const dummyPosts = [
 			{
-				title: 'The standard Lorem Ipsum passage.',
+				title: 'Korean Brand Preference Architectural Design Award in 2022',
 				content:
 					'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
 			},
 			{
-				title: '1914 translation by H. Rackham',
+				title: 'Signing a Design Agreement for Officetels with Urban Innovation Corporation',
 				content:
-					'On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and demoralized by the charms of pleasure of the moment, so blinded by desire, that they cannot foresee the pain and trouble that are bound to ensue; and equal blame belongs to those who fail in their duty through weakness of will, which is the same as saying through shrinking from toil and pain.',
+					'Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur excepturi atque nobis praesentium omnis obcaecati. Sapiente illo nemo doloremque non rem culpa reiciendis modi labore praesentium eum delectus aut repellat necessitatibus, laboriosam in unde impedit?',
 			},
 			{
-				title: 'It is a long established fact.',
+				title: 'Signing a contract for the extension of the electrical office building',
 				content:
-					"The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy.",
+					'Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit architecto nisi quae? Explicabo repudiandae doloremque nisi quae molestias totam, quisquam facilis quam perferendis voluptate sequi praesentium ab enim temporibus',
 			},
 			{
-				title: 'Contrary to popular belief.',
+				title: 'Jeju Center New Construction Contract Enclosed',
 				content:
-					'The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from de Finibus Bonorum et Malorum by Cicero are also reproduced in their exact original form',
+					'Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem natus temporibus alias maxime. Voluptatibus veniam iure, quis, nesciunt odit fugit atque et facere accusantium illo corrupti est soluta blanditiis',
 			},
 			{
-				title: 'Lorem Ipsum is simply dummy text.',
+				title: 'we won at the 2022 Spaciux Design Award',
 				content:
-					' It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.',
+					'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ducimus, distinctio eius. Explicabo totam voluptates, labore vel hic, modi nisi sit, amet expedita impedit consequatur incidunt inventore autem minima ducimus?',
 			},
 			{
-				title: 'The standard chunk of Lorem Ipsum used',
+				title: 'Architect of the Year Selected in 2022',
 				content:
-					"There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. ",
+					'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Molestias rerum illum sit est nisi necessitatibus architecto, voluptates asperiores quaerat aspernatur atque, eum exercitationem quo deleniti vero voluptas deserunt debitis aliquam non inventore vitae saepe? Enim, dicta?',
 			},
 		];
 
