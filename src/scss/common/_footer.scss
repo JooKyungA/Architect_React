@@ -7,10 +7,12 @@
 		border-top: 2px solid #6e6d6d80;
 		display: flex;
 		flex-wrap: wrap;
-		justify-content: space-between;
 		> div {
-			display: flex;
-			flex-direction: column;
+			&::after {
+				content: '';
+				display: block;
+				clear: both;
+			}
 			h2 {
 				font-size: 14px;
 				font-weight: 400;
@@ -27,8 +29,9 @@
 				color: #9a9a9a;
 				margin-bottom: 15px;
 			}
-			&.footer_txt {
-				width: 35%;
+			&.footer_menu {
+				width: 400px;
+				float: left;
 				h1 {
 					font-size: 15px;
 					font-weight: 400;
@@ -54,7 +57,8 @@
 				}
 			}
 			&.footer_contact {
-				width: 22%;
+				width: 300px;
+				float: left;
 				address {
 					width: 90%;
 					font-style: normal;
@@ -65,7 +69,8 @@
 				}
 			}
 			&.footer_follow {
-				width: 17%;
+				width: 180px;
+				float: left;
 				ul {
 					li {
 						a {
@@ -87,7 +92,8 @@
 				}
 			}
 			&.footer_subscribe {
-				width: 26%;
+				width: 300px;
+				float: left;
 				> div {
 					width: 100%;
 					display: flex;
@@ -140,6 +146,21 @@
 		.inner {
 			width: 100%;
 			padding: 5vw 5vw 0vw;
+			> div {
+				&.footer_menu {
+					width: 100%;
+					margin-bottom: 25px;
+				}
+				&.footer_contact {
+					width: 40%;
+				}
+				&.footer_follow {
+					width: 20%;
+				}
+				&.footer_subscribe {
+					width: 40%;
+				}
+			}
 		}
 	}
 }
@@ -149,7 +170,7 @@
 	#footer {
 		.inner {
 			> div {
-				&.footer_txt {
+				&.footer_menu {
 					width: 100%;
 					margin-bottom: 25px;
 				}

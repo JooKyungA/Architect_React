@@ -6,7 +6,7 @@ function Footer() {
 	return (
 		<footer id='footer'>
 			<div className='inner'>
-				<div className='footer_txt'>
+				<div className='footer_menu'>
 					<h1>
 						<Link to='/'>DCL ARCHITECTS</Link>
 					</h1>

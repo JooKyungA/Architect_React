@@ -47,17 +47,21 @@
 			display: flex;
 			justify-content: space-between;
 			article {
-				width: 30%;
+				width: 380px;
 				min-height: 150px;
+				margin-right: 20px;
 				padding: 25px 30px;
 				border: 1px solid #6e6d6d;
 				transform: rotateY(200deg) translateY(100px);
 				opacity: 0;
 				transition: transform 0.5s 0.2s, opacity 0.5s 0.2s, background-color 0.5s;
+				&:nth-of-type(3) {
+					margin-right: 0px;
+				}
 				h5 {
 					font-size: 18px;
 					color: #cb770a;
-					margin-bottom: 15px;
+					margin-bottom: 25px;
 					transition: 0.5s;
 				}
 				p {
@@ -108,6 +112,7 @@
 				article {
 					width: 49%;
 					margin-bottom: 20px;
+					margin-right: 0px;
 					&:nth-of-type(3) {
 						width: 100%;
 					}
