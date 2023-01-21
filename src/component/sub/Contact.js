@@ -44,20 +44,13 @@ function Contact() {
 		const { name, value } = e.target;
 		setVal({ ...Val, [name]: value });
 	};
-	const handleCheck = (e) => {
-		let isChecked = false;
-		const { name } = e.target;
-		const inputs = e.target.parentElement.querySelectorAll('input');
-		inputs.forEach((el) => {
-			if (el.checked) isChecked = true;
-		});
-		setVal({ ...Val, [name]: isChecked });
-	};
+
 	const handleSelect = (e) => {
 		const { name } = e.target;
 		const isSelected = e.target.value;
 		setVal({ ...Val, [name]: isSelected });
 	};
+
 	const handleSubmit = (e) => {
 		e.preventDefault();
 		setErr(check(Val));

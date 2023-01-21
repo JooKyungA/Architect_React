@@ -6,7 +6,6 @@ export const fetchYoutube = createAsyncThunk('youtube/requestYoutube', async () 
 	const playlistId = 'PLB11APmWdapRtpUvss55ipqwUpcIxj3Eq';
 	const num = 9;
 	const url = `https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&key=${key}&playlistId=${playlistId}&maxResults=${num}`;
-
 	const response = await axios.get(url);
 	return response.data.items;
 });

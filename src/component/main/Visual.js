@@ -141,9 +141,12 @@ function Visual() {
 	return (
 		<figure id='visual' className={IsOff} ref={visualRef}>
 			<div className='inner'>
+				{/* aside 오픈 버튼 */}
 				<Link to='#' className='btnViewOpen' onClick={openBox}>
 					VIEW CONTENT
 				</Link>
+
+				{/* txt */}
 				<div className='txt'>
 					<h1>DCL ARCH.</h1>
 					<p>
@@ -151,9 +154,13 @@ function Visual() {
 						this, we aim to build together.
 					</p>
 				</div>
+
+				{/* pic */}
 				<div className='pic'>
 					<img src={`${path}/img/main.jpg`} alt='' />
 				</div>
+
+				{/* slider */}
 				<article className='slider' ref={slider}>
 					<ul>
 						{imgs.map((pic, idx) => {
@@ -173,6 +180,8 @@ function Visual() {
 						<span></span>
 					</p>
 				</div>
+
+				{/* aside */}
 				<aside id='aside' ref={aside}>
 					<div className='top'></div>
 					<div className='right'></div>

@@ -42,7 +42,7 @@
 			}
 		}
 		.btns {
-			width: 18%;
+			width: 200px;
 			float: left;
 			display: flex;
 			flex-wrap: wrap;
@@ -75,7 +75,7 @@
 		}
 		#gallery {
 			float: right;
-			width: 80%;
+			width: 980px;
 			padding: 0px 0px 50px;
 			overflow: hidden;
 			&.on .list {
@@ -148,8 +148,18 @@
 
 // tablet - 1179px--------------------
 
-// @media screen and (max-width: $tablet) {
-// }
+@media screen and (max-width: $tablet) {
+	.PortfolioSub {
+		.inner {
+			.btns {
+				width: 18%;
+			}
+			#gallery {
+				width: 80%;
+			}
+		}
+	}
+}
 
 // middle - 935px--------------------
 

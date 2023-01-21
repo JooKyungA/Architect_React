@@ -74,6 +74,7 @@ function Join() {
 		const isChecked = e.target.checked;
 		setVal({ ...Val, [name]: isChecked });
 	};
+
 	const handleCheck = (e) => {
 		let isChecked = false;
 		const { name } = e.target;
