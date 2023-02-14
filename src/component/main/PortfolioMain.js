@@ -3,26 +3,16 @@ import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchFlickr } from '../../redux/flickrSlice';
 import Modal from '../common/Modal';
-import axios from 'axios';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
 
 function PortfolioMain() {
 	const dispatch = useDispatch();
 	const modal = useRef(null);
-	const [Data, setData] = useState([]);
 	const [Index, setIndex] = useState(0);
 	const [ActiveNum, setActiveNum] = useState(0);
 	const pics = useSelector((store) => store.flickr.data);
-
-	const getImgs = async () => {
-		const result = await axios.get(`${process.env.PUBLIC_URL}/DB/mainPortfolio.json`);
-		setData(result.data.mainPortfolio);
-
-		photosetIndex(0);
-	};
-
-	useEffect(getImgs, []);
+	const tabBtns = ['HOUSE', 'OFFICE', 'RESTAURANT', 'OTHERS'];
 
 	const photoset_ids = [
 		'72177720305070823',
@@ -37,6 +27,10 @@ function PortfolioMain() {
 		);
 	};
 
+	useEffect(() => {
+		photosetIndex(0);
+	}, []);
+
 	return (
 		<>
 			<section id='portfolioMain' className='scrollView'>
@@ -48,12 +42,12 @@ function PortfolioMain() {
 					<div className='tab_container'>
 						<div id='tab'>
 							<ul>
-								{Data.map((el, idx) => {
+								{tabBtns.map((el, idx) => {
 									let isOn = '';
 									Index === idx ? (isOn = 'on') : (isOn = '');
 									return (
 										<li
-											key={el.title}
+											key={el}
 											className={isOn}
 											onClick={() => {
 												setIndex(idx);
@@ -66,7 +60,7 @@ function PortfolioMain() {
 													e.preventDefault(e);
 												}}
 											>
-												{el.title}
+												{el}
 											</Link>
 										</li>
 									);

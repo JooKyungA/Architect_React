@@ -125,11 +125,6 @@
 			opacity: 0.8;
 			filter: grayscale(40%);
 		}
-		&::after {
-			content: '';
-			display: block;
-			clear: both;
-		}
 		.branch {
 			width: 280px;
 			float: right;

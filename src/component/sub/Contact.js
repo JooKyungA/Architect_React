@@ -26,7 +26,7 @@ function Contact() {
 		const errs = {};
 
 		if (value.contact_name.length < 1) {
-			errs.contact_name = '입력항목을 1글자 이상 입력하세요.';
+			errs.contact_name = '입력항목을 1글자 이상 입력하세요';
 		}
 		if (value.contact_email.length < 8 || !/@/.test(value.contact_email)) {
 			errs.contact_email = '@를 포함한 전체 이메일 주소를 입력하세요';
@@ -35,7 +35,7 @@ function Contact() {
 			errs.contact_branch = '항목을 선택해 주세요';
 		}
 		if (value.contact_message.length < 10) {
-			errs.contact_message = '남기는 말은 10글자 이상 입력하세요';
+			errs.contact_message = '입력항목을 10글자 이상 입력하세요.';
 		}
 		return errs;
 	};
