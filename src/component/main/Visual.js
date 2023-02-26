@@ -94,8 +94,6 @@ function Visual() {
 		const panel = slider.current.children[0];
 		panel.prepend(panel.lastElementChild);
 		panel.prepend(panel.lastElementChild);
-		const lis = panel.querySelectorAll('li');
-		lis[2].classList.add('on');
 	};
 
 	const nextSlide = () => {
@@ -105,10 +103,9 @@ function Visual() {
 		const panel = slider.current.children[0];
 		panel.append(panel.firstElementChild);
 
-		activationSlide();
-
 		setTimeout(() => {
 			setNextOn('');
+			setEnableClick(true);
 		}, sliderSpeed);
 	};
 
@@ -119,19 +116,10 @@ function Visual() {
 		const panel = slider.current.children[0];
 		panel.prepend(panel.lastElementChild);
 
-		activationSlide();
-
 		setTimeout(() => {
 			setPrevOn('');
+			setEnableClick(true);
 		}, sliderSpeed);
-	};
-
-	const activationSlide = () => {
-		const panel = slider.current.children[0];
-		const lis = panel.querySelectorAll('li');
-		for (const el of lis) el.classList.remove('on');
-		lis[2].classList.add('on');
-		setEnableClick(true);
 	};
 
 	useEffect(() => {
@@ -165,7 +153,7 @@ function Visual() {
 					<ul>
 						{imgs.map((pic, idx) => {
 							return (
-								<li className={idx} key={imgs[idx]}>
+								<li className={`vis_slider_${idx}`} key={imgs[idx]}>
 									<img src={pic} alt={pic} />
 								</li>
 							);

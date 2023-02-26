@@ -26,7 +26,7 @@
 			opacity: 0;
 			transition: 0.5s 0.2s;
 			.acordianMenu {
-				width: 700px;
+				width: 100%;
 				height: 100%;
 				position: relative;
 				margin: 0px;
@@ -59,7 +59,6 @@
 							padding: 0px 15px;
 							font-weight: 500;
 							color: #cb770a;
-							border-radius: 2px;
 						}
 					}
 					.content {
@@ -98,7 +97,7 @@
 						position: relative;
 						font-weight: 400;
 						color: #9a9a9a;
-						z-index: 10;
+						z-index: 1;
 					}
 				}
 				.content {
@@ -118,7 +117,7 @@
 						position: relative;
 						padding: 10px 0;
 						color: #9a9a9a;
-						z-index: 10;
+						z-index: 2;
 					}
 				}
 			}
@@ -157,7 +156,6 @@
 				width: 80%;
 				margin-top: 20px;
 				.acordianMenu {
-					width: 100%;
 					&.on {
 						.txt {
 							h2 {

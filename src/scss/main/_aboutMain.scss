@@ -16,14 +16,8 @@
 			transform: translateY(-50%);
 			opacity: 0;
 			transition: 0.5s;
-			a {
-				transition: 0.5s;
-				&:hover {
-					color: #cb770a;
-				}
-			}
 		}
-		> a {
+		a {
 			display: block;
 			float: right;
 			margin-top: -70px;
@@ -103,7 +97,7 @@
 				transform: translateY(0%);
 				opacity: 1;
 			}
-			> a {
+			a {
 				transform: translateX(0%);
 				opacity: 1;
 			}
@@ -134,7 +128,6 @@
 			width: 100%;
 			padding: 5vw 5vw 5vw;
 			.txt {
-				display: flex;
 				flex-direction: column;
 				h2 {
 					margin-bottom: 15px;
@@ -159,8 +152,20 @@
 			h1 {
 				margin-bottom: 50px;
 			}
-			> a {
+			a {
 				margin-top: -40px;
+			}
+			.txt {
+				h2 {
+					width: 100%;
+					p {
+						font-size: 13px;
+						font-weight: 500;
+					}
+				}
+				> p {
+					font-size: 13px;
+				}
 			}
 		}
 	}

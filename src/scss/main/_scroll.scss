@@ -3,7 +3,7 @@
 	right: 2vw;
 	top: 50%;
 	transform: translateY(-50%);
-	z-index: 20;
+	z-index: 5;
 	li {
 		display: flex;
 		justify-content: flex-end;
@@ -13,7 +13,7 @@
 			color: #cb770a;
 			cursor: none;
 			opacity: 0;
-			transition: 1;
+			transition: 0.5s;
 		}
 		a {
 			display: block;
