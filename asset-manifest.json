@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/react1103/static/css/main.999f49da.css",
-    "main.js": "/react1103/static/js/main.5c410694.js",
+    "main.css": "/react1103/static/css/main.edf11b90.css",
+    "main.js": "/react1103/static/js/main.14bf5d48.js",
     "static/media/contact.jpg": "/react1103/static/media/contact.31b4c12799e92e152d74.jpg",
     "static/media/join.jpg": "/react1103/static/media/join.94f2a83946726100980c.jpg",
     "static/media/pic2.jpg": "/react1103/static/media/pic2.cf0f5a2e3e6b83fb9084.jpg",
@@ -10,11 +10,11 @@
     "static/media/pic3.jpg": "/react1103/static/media/pic3.a80f48c93363a0e9443f.jpg",
     "static/media/pic5.jpg": "/react1103/static/media/pic5.7ac3f51250996a72c7ee.jpg",
     "index.html": "/react1103/index.html",
-    "main.999f49da.css.map": "/react1103/static/css/main.999f49da.css.map",
-    "main.5c410694.js.map": "/react1103/static/js/main.5c410694.js.map"
+    "main.edf11b90.css.map": "/react1103/static/css/main.edf11b90.css.map",
+    "main.14bf5d48.js.map": "/react1103/static/js/main.14bf5d48.js.map"
   },
   "entrypoints": [
-    "static/css/main.999f49da.css",
-    "static/js/main.5c410694.js"
+    "static/css/main.edf11b90.css",
+    "static/js/main.14bf5d48.js"
   ]
 }
