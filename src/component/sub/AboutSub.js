@@ -107,7 +107,7 @@ function AboutSub() {
 				<h2>Who We Are</h2>
 				<article>
 					<div className='wrap'>
-						<div id='slider' ref={slider}>
+						<div className='slider' ref={slider}>
 							<ul className='panel'>
 								{AboutSlider.map((data, idx) => {
 									return (
@@ -143,16 +143,16 @@ function AboutSub() {
 								/>
 							</Link>
 						</div>
-						<div className='txt' ref={txt}>
-							{AboutSlider.map((data, idx) => {
-								return (
-									<p className={Active === idx ? 'on' : ''} key={data.title} ref={txt_p}>
-										<span ref={span}>{`0${idx + 1}`}</span>
-										{data.text}
-									</p>
-								);
-							})}
-						</div>
+					</div>
+					<div className='txt' ref={txt}>
+						{AboutSlider.map((data, idx) => {
+							return (
+								<p className={Active === idx ? 'on' : ''} key={data.title} ref={txt_p}>
+									<span ref={span}>{`0${idx + 1}`}</span>
+									{data.text}
+								</p>
+							);
+						})}
 					</div>
 				</article>
 			</div>

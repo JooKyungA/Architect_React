@@ -1,4 +1,4 @@
-import { useEffect, useState, useRef } from 'react';
+import { useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchFlickr } from '../../redux/flickrSlice';
@@ -9,9 +9,9 @@ import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
 function PortfolioMain() {
 	const dispatch = useDispatch();
 	const modal = useRef(null);
-	const [Index, setIndex] = useState(0);
 	const [ActiveNum, setActiveNum] = useState(0);
 	const pics = useSelector((store) => store.flickr.data);
+	const photoset_num = useSelector((store) => store.flickr.photosetNum);
 	const tabBtns = ['HOUSE', 'OFFICE', 'RESTAURANT', 'OTHERS'];
 
 	const photoset_ids = [
@@ -21,15 +21,16 @@ function PortfolioMain() {
 		'72177720305050761',
 	];
 
-	const photosetIndex = (idx) => {
+	const showPhotosets = (idx) => {
 		dispatch(
-			fetchFlickr({ type: 'photosets', user: '197141079@N07', photoset: photoset_ids[idx] })
+			fetchFlickr({
+				type: 'photosets',
+				user: '197141079@N07',
+				photoset: photoset_ids[idx],
+				num: idx,
+			})
 		);
 	};
-
-	useEffect(() => {
-		photosetIndex(0);
-	}, []);
 
 	return (
 		<>
@@ -44,14 +45,19 @@ function PortfolioMain() {
 							<ul>
 								{tabBtns.map((el, idx) => {
 									let isOn = '';
-									Index === idx ? (isOn = 'on') : (isOn = '');
+									if (photoset_num === idx) {
+										isOn = 'on';
+									} else if (idx === 0 && photoset_num == null) {
+										isOn = 'on';
+									} else {
+										isOn = '';
+									}
 									return (
 										<li
 											key={el}
 											className={isOn}
 											onClick={() => {
-												setIndex(idx);
-												photosetIndex(idx);
+												showPhotosets(idx);
 											}}
 										>
 											<Link

@@ -21,7 +21,7 @@
 			opacity: 0;
 			transition: 0.5s;
 		}
-		a {
+		> a {
 			display: block;
 			float: right;
 			margin-top: -70px;
@@ -233,7 +233,7 @@
 			h1 {
 				margin-bottom: 50px;
 			}
-			a {
+			> a {
 				margin-top: -40px;
 			}
 			.tab_container {

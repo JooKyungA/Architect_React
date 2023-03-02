@@ -24,18 +24,13 @@ function PortfolioSub() {
 		'72177720305050761',
 	];
 	const Items = useSelector((store) => store.flickr.data);
+	const photoset_num = useSelector((store) => store.flickr.photosetNum);
 
 	const isOn = (e) => {
 		for (let i of btns.current.children) {
 			i.classList.remove('on');
 		}
 		e.target.classList.add('on');
-	};
-
-	const showUser = () => {
-		dispatch(fetchFlickr({ type: 'user', user: user_id }));
-		frame.current.classList.remove('on');
-		setLoading(true);
 	};
 
 	const showSearch = () => {
@@ -46,10 +41,15 @@ function PortfolioSub() {
 		dispatch(fetchFlickr({ type: 'search', tags: tag }));
 		frame.current.classList.remove('on');
 		setLoading(true);
+		for (let i of btns.current.children) {
+			i.classList.remove('on');
+		}
 	};
 
 	const showPhotosets = (idx) => {
-		dispatch(fetchFlickr({ type: 'photosets', user: user_id, photoset: photoset_ids[idx] }));
+		dispatch(
+			fetchFlickr({ type: 'photosets', user: user_id, photoset: photoset_ids[idx], num: idx })
+		);
 		frame.current.classList.remove('on');
 		setLoading(true);
 	};
@@ -85,14 +85,7 @@ function PortfolioSub() {
 				</section>
 				<div className='btns' ref={btns}>
 					<button
-						onClick={(e) => {
-							isOn(e);
-							showUser();
-						}}
-					>
-						ALL
-					</button>
-					<button
+						className={photoset_num == null || photoset_num === 0 ? 'on' : ''}
 						onClick={(e) => {
 							isOn(e);
 							showPhotosets(0);
@@ -101,6 +94,7 @@ function PortfolioSub() {
 						HOUSE
 					</button>
 					<button
+						className={photoset_num === 1 ? 'on' : ''}
 						onClick={(e) => {
 							isOn(e);
 							showPhotosets(1);
@@ -109,6 +103,7 @@ function PortfolioSub() {
 						OFFICE
 					</button>
 					<button
+						className={photoset_num === 2 ? 'on' : ''}
 						onClick={(e) => {
 							isOn(e);
 							showPhotosets(2);
@@ -117,6 +112,7 @@ function PortfolioSub() {
 						RESTAURANT
 					</button>
 					<button
+						className={photoset_num === 3 ? 'on' : ''}
 						onClick={(e) => {
 							isOn(e);
 							showPhotosets(3);
