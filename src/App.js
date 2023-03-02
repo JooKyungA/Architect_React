@@ -35,7 +35,7 @@ function App() {
 
 	useEffect(() => {
 		dispatch(fetchYoutube());
-		dispatch(fetchFlickr({ type: 'photosets', user: user_id, photoset: photoset_id }));
+		dispatch(fetchFlickr({ type: 'photosets', user: user_id, photoset: photoset_id, num: 0 }));
 	}, [dispatch]);
 
 	return (

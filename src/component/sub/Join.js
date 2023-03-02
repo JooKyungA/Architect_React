@@ -137,7 +137,7 @@ function Join() {
 						</caption>
 						<tbody>
 							<tr>
-								<th scope='row'>Member Type *</th>
+								<th scope='row'>Member Type</th>
 								<td>
 									<input
 										type='radio'
@@ -160,7 +160,7 @@ function Join() {
 							</tr>
 							<tr>
 								<th scope='row'>
-									<label htmlFor='userName'> Name *</label>
+									<label htmlFor='userName'> Name</label>
 								</th>
 								<td>
 									<input
@@ -177,7 +177,7 @@ function Join() {
 
 							<tr>
 								<th scope='row'>
-									<label htmlFor='userid'>User ID *</label>
+									<label htmlFor='userid'>User ID</label>
 								</th>
 								<td>
 									<input
@@ -193,7 +193,7 @@ function Join() {
 							</tr>
 							<tr>
 								<th scope='row'>
-									<label htmlFor='pwd1'>Password *</label>
+									<label htmlFor='pwd1'>Password</label>
 								</th>
 								<td>
 									<input
@@ -209,7 +209,7 @@ function Join() {
 							</tr>
 							<tr>
 								<th scope='row'>
-									<label htmlFor='pwd2'>Confirm Password *</label>
+									<label htmlFor='pwd2'>Confirm Password</label>
 								</th>
 								<td>
 									<input
@@ -225,7 +225,7 @@ function Join() {
 							</tr>
 							<tr>
 								<th scope='row'>
-									<label htmlFor='email'>E-mail *</label>
+									<label htmlFor='email'>E-mail</label>
 								</th>
 								<td>
 									<input
@@ -241,10 +241,10 @@ function Join() {
 							</tr>
 							<tr>
 								<th scope='row'>
-									<label htmlFor='join_branch'>Branch *</label>
+									<label htmlFor='join_branch'>Branch</label>
 								</th>
 								<td>
-									<select name='join_branch' id='join_branch' onChange={handleSelect}>
+									<select name='join_branch' id='joins_branch' onChange={handleSelect}>
 										<option value=''>선택해주세요</option>
 										<option value='본점'>본점</option>
 										<option value='안양지점'>안양지점</option>

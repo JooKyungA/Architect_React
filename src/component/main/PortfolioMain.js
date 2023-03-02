@@ -44,18 +44,10 @@ function PortfolioMain() {
 						<div id='tab'>
 							<ul>
 								{tabBtns.map((el, idx) => {
-									let isOn = '';
-									if (photoset_num === idx) {
-										isOn = 'on';
-									} else if (idx === 0 && photoset_num == null) {
-										isOn = 'on';
-									} else {
-										isOn = '';
-									}
 									return (
 										<li
 											key={el}
-											className={isOn}
+											className={photoset_num === idx ? 'on' : ''}
 											onClick={() => {
 												showPhotosets(idx);
 											}}

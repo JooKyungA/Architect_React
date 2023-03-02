@@ -85,7 +85,7 @@ function PortfolioSub() {
 				</section>
 				<div className='btns' ref={btns}>
 					<button
-						className={photoset_num == null || photoset_num === 0 ? 'on' : ''}
+						className={photoset_num === 0 ? 'on' : ''}
 						onClick={(e) => {
 							isOn(e);
 							showPhotosets(0);
